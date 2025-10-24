@@ -34,25 +34,21 @@ import postgreLogo from './assets/tech_logo/postgre.png';
 import csharpLogo from './assets/tech_logo/csharp.png';
 
 // Experience Section Logo's
-import webverseLogo from './assets/company_logo/webverse_logo.png';
-import agcLogo from './assets/company_logo/agc_logo.png';
-import newtonschoolLogo from './assets/company_logo/newtonschool_logo.png';
+import cat_logo from './assets/company_logo/cat_logo.png';
+import fwc_it_services_pvt_ltd_logo from './assets/company_logo/fwc_it_services_pvt_ltd_logo.jpg';
 
 // Education Section Logo's
-import glaLogo from './assets/education_logo/gla_logo.png';
-import bsaLogo from './assets/education_logo/bsa_logo.png';
-import vpsLogo from './assets/education_logo/vps_logo.png';
+import bmsceLogo from './assets/education_logo/bmsce_logo.png';
+import bblLogo from './assets/education_logo/BBLPS.jpg';
+import SSMVLogo from './assets/education_logo/SSMVLogo.jpg';
+
 
 // Project Section Logo's
 import githubdetLogo from './assets/work_logo/github_det.png';
-import csprepLogo from './assets/work_logo/cs_prep.png';
-import movierecLogo from './assets/work_logo/movie_rec.png';
+import FWCLogo from './assets/work_logo/FWCWebsite.png';
+import ecedept from './assets/work_logo/ecedept.png';
 import taskremLogo from './assets/work_logo/task_rem.png';
 import npmLogo from './assets/work_logo/npm.png';
-import webverLogo from './assets/work_logo/web_dig.png';
-import cmLogo from './assets/work_logo/cm.png';
-import imagesearchLogo from './assets/work_logo/image_search.png';
-import removebgLogo from './assets/work_logo/remove_bg.png';
 
 
 export const SkillsInfo = [
@@ -61,27 +57,20 @@ export const SkillsInfo = [
     skills: [
       { name: 'HTML', logo: htmlLogo },
       { name: 'CSS', logo: cssLogo },
-      { name: 'SASS', logo: sassLogo },
       { name: 'JavaScript', logo: javascriptLogo },
       { name: 'React JS', logo: reactjsLogo },
-      { name: 'Angular', logo: angularLogo },
-      { name: 'Redux', logo: reduxLogo },
       { name: 'Next JS', logo: nextjsLogo },
       { name: 'Tailwind CSS', logo: tailwindcssLogo },
-      { name: 'GSAP', logo: gsapLogo },
-      { name: 'Material UI', logo: materialuiLogo },
-      { name: 'Bootstrap', logo: bootstrapLogo },
+
     ],
   },
   {
     title: 'Backend',
     skills: [
-      { name: 'Springboot', logo: springbootLogo },
       { name: 'Node JS', logo: nodejsLogo },
       { name: 'Express JS', logo: expressjsLogo },
       { name: 'MySQL', logo: mysqlLogo },
       { name: 'MongoDB', logo: mongodbLogo },
-      { name: 'Firebase', logo: firebaseLogo },
       { name: 'PostgreSQL', logo: postgreLogo },
     ],
   },
@@ -92,7 +81,6 @@ export const SkillsInfo = [
       { name: 'C++', logo: cppLogo },
       { name: 'Java', logo: javaLogo },
       { name: 'Python', logo: pythonLogo },
-      { name: 'C-Sharp', logo: csharpLogo },
       { name: 'JavaScript', logo: javascriptLogo },
       { name: 'TypeScript', logo: typescriptLogo },
     ],
@@ -106,7 +94,6 @@ export const SkillsInfo = [
       { name: 'Postman', logo: postmanLogo },
       { name: 'Compass', logo: mcLogo },
       { name: 'Vercel', logo: vercelLogo },
-      { name: 'Netlify', logo: netlifyLogo },
       { name: 'Figma', logo: figmaLogo },
     ],
   },
@@ -115,94 +102,84 @@ export const SkillsInfo = [
   export const experiences = [
     {
       id: 0,
-      img: webverseLogo,
-      role: "Fullstack Developer",
-      company: "Webverse Digital",
-      date: "April 2024 - Present",
-      desc: "Developed dynamic and scalable web applications using the MERN stack, handling both frontend and backend development. Collaborated with cross-functional teams to build responsive UI, implement RESTful APIs, and optimize application performance in an agile environment.",
+      img: cat_logo,
+      role: "Associate Engineer",
+      company: "Caterpillar Inc.",
+      date: "July 2025 - Present",
+      desc: "Currently working in the role of Associate Engineer at Caterpillar Inc., contributing to the development and maintenance of web applications that enhance user experience and operational efficiency. Collaborating with cross-functional teams to implement innovative solutions using modern web technologies.",
       skills: [
         "HTML",
         "CSS",
         "JavaScript",
-        "React JS",
-        "TypeScript",
         "Node JS",
-        "Tailwind CSS",
-        "MongoDb",
-        "Redux",
-        " Next Js",
+        "Java",
+        "Various Protocols",
+        "Python",
       ],
     },
     {
       id: 1,
-      img: agcLogo,
-      role: "Fullstack Engineer",
-      company: "Agumentik Group of Companies",
-      date: "July 2023 - March 2024",
-      desc: "Contributed to innovative projects as a Fullstack Engineer, leading both frontend and backend development using technologies such as HTML, CSS, JavaScript, PHP, SQL, Bootstrap, and ReactJS. Worked closely with the team to deliver responsive, high-performance web applications and improve user experience through seamless integration of various technologies.",
+      img: cat_logo,
+      role: "Associate Engineer Intern",
+      company: "Caterpillar Inc.",
+      date: "January 2025 - July 2025",
+      desc: "As an intern, I worked on various web based projects, gaining hands-on experience in full-stack development. I collaborated with senior developers to design and implement features, debug issues, and optimize application performance. This internship provided me with valuable insights into industry practices and enhanced my technical skills.",
       skills: [
-        "ReactJS",
-        "Redux",
-        "JavaScript",
-        "Tailwind CSS",
-        "HTML",
+       "HTML",
         "CSS",
-        "SQL",
+        "JavaScript",
+        "Node JS",
+        "Java",
+        "Various Protocols",
+        "JProfiler",
       ],
     },
     {
       id: 2,
-      img: newtonschoolLogo,
-      role: "Frontend Intern",
-      company: "Newton School",
-      date: "September 2021 - August 2022",
-      desc: "Worked as a Frontend Developer Intern, designing and implementing scalable UI components and responsive websites using HTML, CSS, JavaScript, Bootstrap, and Material UI. Collaborated with the design team to translate wireframes and prototypes from Figma into interactive, user-friendly web pages.",
+      img: fwc_it_services_pvt_ltd_logo,
+      role: "SDE Intern",
+      company: "FWC IT Services Pvt. Ltd.",
+      date: "January 2025 - July 2025",
+      desc: "I worked on the official website of the company with the help of ReactJS for frontend and NodeJS for backend. I was responsible for implementing new features, fixing bugs, and improving the overall user experience. This internship allowed me to apply my academic knowledge in a real-world setting and develop my problem-solving skills.",
       skills: [
+        "ReactJS",
+        "Node JS",
+        "JavaScript",
+        "TypeScript",
         "HTML",
         "CSS",
-        "Javascript",
-        "Bootstrap",
-        "Figma",
-        "Material UI",
+        "Tailwind CSS",
       ],
     },
   ];
   
   export const education = [
+    
     {
       id: 0,
-      img: glaLogo,
-      school: "GLA University, Mathura",
-      date: "Sept 2022 - July 2024",
-      grade: "7.81 CGPA",
-      desc: "I have completed my Master's degree (MCA) in Computer Applications from GLA University, Mathura. During my time at GLA, I gained a strong foundation in programming, software development, and computer science principles. I have studied courses such as Data Structures, Algorithms, Object-Oriented Programming, Database Management Systems, Web Development, and Software Engineering. I actively participated in various workshops and technical events, which enhanced my skills and knowledge. My experience at GLA University has been instrumental in shaping my technical abilities and professional growth.",
-      degree: "Master of Computer Applications - MCA",
+      img: bmsceLogo,
+      school: "BMS College of Engineering, Bangalore",
+      date: "Dec 2025 - June 2025",
+      grade: "7.8 CGPA",
+      desc: "I completed my Bachelor's degree in Bachelor of Engineering(BE) from BMS College of Engineering, Bangalore. Throughout my studies, I was immersed in a variety of subjects that deepened my understanding of computing and technology. From exploring Data Structures and Algorithms to diving into Web Development and Database Management Systems, I gained practical insights into the world of software development. My time at BMS College allowed me to work on projects that applied theoretical concepts to real-world problems.",
+      degree: "Bachelor of Engineering - BE",
     },
     {
       id: 1,
-      img: bsaLogo,
-      school: "BSA College, Mathura",
-      date: "Sept 2018 - Aug 2021",
-      grade: "73.2%",
-      desc: "I completed my Bachelor's degree in Computer Science (B.Sc.) from BSA College, Mathura. Throughout my studies, I was immersed in a variety of subjects that deepened my understanding of computing and technology. From exploring Data Structures and Algorithms to diving into Web Development and Database Management Systems, I gained practical insights into the world of software development. My time at BSA College allowed me to work on projects that applied theoretical concepts to real-world problems.",
-      degree: "Bachelor of Science - BSC (Computer Science)",
-    },
-    {
-      id: 2,
-      img: vpsLogo,
-      school: "Vatsalya Public School Govardhan, Mathura",
-      date: "Apr 2017 - March 2018",
-      grade: "78%",
-      desc: "I completed my class 12 education from Vatsalya Public School, Govardhan, under the CBSE board, where I studied Physics, Chemistry, and Mathematics (PCM) with Computer Science.",
+      img: bblLogo,
+      school: "BBL Public School, Bareilly",
+      date: "Apr 2019 - March 2020",
+      grade: "90%",
+      desc: "I completed my class 12 education from BBL Public School, Bareilly, under the CBSE board, where I studied Physics, Chemistry, and Mathematics (PCM) with Computer Science.",
       degree: "CBSE(XII) - PCM with Computer Science",
     },
     {
-      id: 3,
-      img: vpsLogo,
-      school: "Vatsalya Public School Govardhan, Mathura",
-      date: "Apr 2015 - March 2016",
-      grade: "87.5%",
-      desc: "I completed my class 10 education from Vatsalya Public School, Govardhan, under the CBSE board, where I studied Science with Computer.",
+      id: 2,
+      img: SSMVLogo,
+      school: "SSMV, Shahjahanpur",
+      date: "Apr 2017 - March 2018",
+      grade: "92%",
+      desc: "I completed my class 10 education from SSMV, Shahjahanpur, under the CBSE board, where I studied Science with Computer.",
       degree: "CBSE(X), Science with Computer Application",
     },
   ];
@@ -220,23 +197,23 @@ export const SkillsInfo = [
     },
     {
       id: 1,
-      title: "CS Prep",
+      title: "FWC Official Website",
       description:
-        "A full-stack quiz-based platform designed for GATE/UGC NET students to practice previous year questions and create customized tests. The platform offers comprehensive profile stats and detailed results, helping students track and improve their preparation journey effectively.",
-      image: csprepLogo,
+        "Built an end-to-end website for FWC IT Services Pvt Ltd. Created a fully responsive site with over 40 interactive pages. Employed Styled-Components for modular and maintainable CSS-in-JS styling.",
+      image: FWCLogo,
       tags: ["React JS", "Node.js", "MongoDB", "Express", "HTML", "CSS", "JavaScript"],
-      github: "https://github.com/codingmastr/CSPrep",
-      webapp: "https://csprep.netlify.app/",
+      github: null,
+      webapp: "https://www.fwc.co.in/",
     },
     {
       id: 2,
-      title: "Movie Recommendation App",
+      title: "ECE Department Website",
       description:
-        "A React-based web application that provides movie recommendations based on different criteria, such as genres, user preferences, and popular trends. The intuitive design and smooth experience make it a go-to app for movie enthusiasts.",
-      image: movierecLogo,
+        "A React-based web application that provides information about the ECE department, including courses, faculty, and student resources. The website features a clean design and user-friendly navigation.",
+      image: ecedept,
       tags: ["React JS", "API", "HTML", "CSS", "JavaScript"],
-      github: "https://github.com/codingmastr/Movie-Recommendation-App",
-      webapp: "https://movie-recommendation-app-jet.vercel.app/",
+      github: "https://github.com/PriyanshuDhasmana/ECE-Dept-Website.git",
+      webapp: "https://ece-dept-frontend.vercel.app/",
     },
     {
       id: 3,
@@ -260,42 +237,13 @@ export const SkillsInfo = [
     },
     {
       id: 5,
-      title: "Webverse Digital",
+      title: "University-Management-System-using-File-Stream-and-OOPs-Concepts",
       description:
-        "The official website for Webverse Digital, a creative digital marketing agency. Built using HTML, CSS, and JavaScript, it features visually appealing animations and a clean design to showcase the agency's services.",
-      image: webverLogo,
-      tags: ["HTML", "CSS", "JavaScript", "Framer Motion"],
-      github: "https://github.com/codingmastr/Webverse-Digital",
-      webapp: "https://webversedigital.com/",
+        "The University Management System is a C++ program that manages student and faculty information. The program uses templates for data handling, and file operations for data persistence, and incorporates error handling for smooth execution.",
+      image: null,
+      tags: ["C++", "OOP", "File Handling", "Templates"],
+      github: "https://github.com/PriyanshuDhasmana/University-Management-System-using-File-Stream-and-OOPs-Concepts.git",
+      webapp: null,
     },
-    {
-      id: 6,
-      title: "Coding Master",
-      description:
-        "An ed-tech platform where users can access tech and coding-related blogs, notes, interview questions, e-books, and premium content with payment integration. Built with full-stack technologies for a seamless learning experience.",
-      image: cmLogo,
-      tags: ["React JS", "Node.js", "MongoDB", "Express", "Payment Integration"],
-      github: "https://codingmasterweb.in/",
-      webapp: "https://codingmasterweb.in/",
-    },
-    {
-      id: 7,
-      title: "Image Search App",
-      description:
-        "A React.js-based image search application that allows users to search and download high-quality images from the web. Built using external APIs to ensure a vast library of results for various queries.",
-      image: imagesearchLogo,
-      tags: ["React JS", "API", "Search Feature", "CSS", "Javascript"],
-      github: "https://github.com/codingmastr/Image-Search-App",
-      webapp: "https://imagsearch.netlify.app/",
-    },
-    {
-      id: 8,
-      title: "Image Background Remover",
-      description:
-        "An efficient background removal app built with React.js and API integration. Users can upload any image, remove the background, and download the transparent version for further use.",
-      image: removebgLogo,
-      tags: ["React JS", "API", "Image Processing", "HTML", "CSS", "Javascript"],
-      github: "https://github.com/codingmastr/Image-Background-Remover",
-      webapp: "https://removeyourbg.netlify.app/",
-    },
+    
   ];  

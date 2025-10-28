@@ -49,7 +49,7 @@ import FWCLogo from './assets/work_logo/FWCWebsite.png';
 import ecedept from './assets/work_logo/ecedept.png';
 import taskremLogo from './assets/work_logo/task_rem.png';
 import npmLogo from './assets/work_logo/npm.png';
-
+import weatherApp from './assets/work_logo/weatherApp.png';
 
 export const SkillsInfo = [
   {
@@ -211,7 +211,7 @@ export const SkillsInfo = [
       description:
         "A React-based web application that provides information about the ECE department, including courses, faculty, and student resources. The website features a clean design and user-friendly navigation.",
       image: ecedept,
-      tags: ["React JS", "API", "HTML", "CSS", "JavaScript"],
+      tags: ["React JS", "HTML", "CSS", "JavaScript", "Node.js", "Express", "MongoDB"],
       github: "https://github.com/PriyanshuDhasmana/ECE-Dept-Website.git",
       webapp: "https://ece-dept-frontend.vercel.app/",
     },
@@ -227,13 +227,13 @@ export const SkillsInfo = [
     },
     {
       id: 4,
-      title: "Task Reminder Chrome Extension Tool",
+      title: "Weather App",
       description:
-        "A productivity-boosting Chrome extension designed to help users manage and remember their daily tasks. Built using JavaScript, it offers a simple interface with reminders and task notifications to keep users on track.",
-      image: taskremLogo,
-      tags: ["JavaScript", "Chrome Extension", "HTML", "CSS"],
-      github: "https://github.com/codingmastr/Task-Reminder-Tool",
-      webapp: "chrome://extensions/?id=kngheeibjnnidhfoomkpnbeghackheci",
+        "A weather forecasting application that provides real-time weather updates and forecasts for any location. Built using React.js and Node.js, it offers a user-friendly interface and accurate weather data.",
+      image: weatherApp,
+      tags: ["JavaScript", "React JS", "HTML", "CSS",  "Node JS", "API"],
+      github: "https://github.com/PriyanshuDhasmana/weatherApp",
+      webapp: "https://weather-6fhdcajtq-priyanshudhasmanas-projects.vercel.app/",
     },
     {
       id: 5,

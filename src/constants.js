@@ -47,9 +47,9 @@ import SSMVLogo from './assets/education_logo/SSMVLogo.jpg';
 import githubdetLogo from './assets/work_logo/github_det.png';
 import FWCLogo from './assets/work_logo/FWCWebsite.png';
 import ecedept from './assets/work_logo/ecedept.png';
-import taskremLogo from './assets/work_logo/task_rem.png';
 import npmLogo from './assets/work_logo/npm.png';
 import weatherApp from './assets/work_logo/weatherApp.png';
+import umsApp from './assets/work_logo/ums.png';
 
 export const SkillsInfo = [
   {
@@ -240,7 +240,7 @@ export const SkillsInfo = [
       title: "University-Management-System-using-File-Stream-and-OOPs-Concepts",
       description:
         "The University Management System is a C++ program that manages student and faculty information. The program uses templates for data handling, and file operations for data persistence, and incorporates error handling for smooth execution.",
-      image: null,
+      image: umsApp ,
       tags: ["C++", "OOP", "File Handling", "Templates"],
       github: "https://github.com/PriyanshuDhasmana/University-Management-System-using-File-Stream-and-OOPs-Concepts.git",
       webapp: null,

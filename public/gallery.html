@@ -1,0 +1,464 @@
+\<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Gallery | Priyanshu Dhasmana</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: Inter, system-ui, sans-serif;
+        color: #ffffff;
+        background: #0b0b0d;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: #0b0b0d;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: radial-gradient(circle at top left, rgba(245,197,66,0.12), transparent 22%), radial-gradient(circle at bottom right, rgba(212,160,23,0.08), transparent 24%);
+        pointer-events: none;
+      }
+
+      .page-shell {
+        position: relative;
+        z-index: 1;
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 4rem 2rem 5rem;
+      }
+
+      .section-header {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: minmax(280px, 1fr) minmax(380px, 1.4fr);
+        align-items: start;
+        margin-bottom: 3rem;
+      }
+
+      .label {
+        font-size: 0.75rem;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        color: rgba(212, 160, 23, 0.72);
+        margin-bottom: 1rem;
+      }
+
+      .title {
+        margin: 0;
+        color: #ffffff;
+        font-size: clamp(2rem, 3.5vw, 3.2rem);
+        line-height: 1.1;
+        font-weight: 800;
+      }
+
+      .subtitle {
+        margin: 1.25rem 0 0;
+        max-width: 32rem;
+        color: #a0a0a0;
+        font-size: 1rem;
+        line-height: 1.85;
+      }
+
+      strong {
+        color: #a0a0a0;
+        font-weight: 600;
+      }
+
+      .hero-strip {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .card-placeholder {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        border-radius: 16px;
+        border: 1px solid #1a1a1a;
+        background: linear-gradient(180deg, rgba(20,20,22,0.9), rgba(11,11,13,1));
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card-placeholder:hover {
+        transform: scale(1.04);
+        box-shadow: 0 0 20px rgba(245,197,66,0.15);
+      }
+
+      .card-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent 45%);
+      }
+
+      .section-block {
+        border-top: 1px solid #1a1a1a;
+        padding-top: 4rem;
+        display: grid;
+        gap: 2.5rem;
+        margin-bottom: 4rem;
+      }
+
+      .section-block:first-of-type {
+        margin-top: 4rem;
+      }
+
+      .section-row {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 3rem;
+        align-items: start;
+        justify-items: center;
+      }
+
+      .section-row .section-right {
+        width: 100%;
+        justify-self: center;
+      }
+
+      .section-left {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        position: relative;
+        padding-left: 1.5rem;
+      }
+
+      .section-left::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2px;
+        height: 0;
+        background: linear-gradient(180deg, rgba(212, 160, 23, 0.8), rgba(212, 160, 23, 0.2));
+        animation: growLine 0.8s ease forwards;
+      }
+
+      @keyframes growLine {
+        from {
+          height: 0;
+        }
+        to {
+          height: 100%;
+        }
+      }
+
+      .section-icon {
+        width: 56px;
+        height: 56px;
+        display: grid;
+        place-items: center;
+        border-radius: 18px;
+        border: 1px solid #1a1a1a;
+        background: #0b0b0d;
+        color: #d4a017;
+        box-shadow: 0 0 30px rgba(212,160,23,0.12);
+      }
+
+      .section-title {
+        margin: 0;
+        font-size: 1.75rem;
+        line-height: 1.05;
+        color: #ffffff;
+        font-weight: 700;
+      }
+
+      .section-copy {
+        margin: 0;
+        color: #a0a0a0;
+        line-height: 1.6;
+        letter-spacing: 0.01em;
+        font-size: 0.9375rem;
+        max-width: 280px;
+      }
+
+      .section-right {
+        display: grid;
+        gap: 0;
+        justify-items: center;
+      }
+
+      .image-row {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.25rem;
+        max-width: 600px;
+        width: 100%;
+      }
+
+      .image-row .card-placeholder:nth-child(1) {
+        animation-delay: 0ms;
+      }
+
+      .image-row .card-placeholder:nth-child(2) {
+        animation-delay: 80ms;
+      }
+
+      .image-row .card-placeholder:nth-child(3) {
+        animation-delay: 160ms;
+      }
+
+      .image-row .card-placeholder:nth-child(4) {
+        animation-delay: 240ms;
+      }
+
+      .fade-up {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .section-row.fade-up {
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      .section-left.fade-up {
+        opacity: 0;
+        transform: translateX(-20px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      .section-left.fade-up.visible {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .hero-strip.fade-up {
+        transition-delay: 0.1s;
+      }
+
+      .hero-strip .card-placeholder,
+      .image-row .card-placeholder {
+        opacity: 0;
+        transform: translateY(18px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .hero-strip.visible .card-placeholder,
+      .image-row.visible .card-placeholder {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 1024px) {
+        .section-header {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-strip {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .section-row {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .section-left {
+          padding-left: 0;
+        }
+
+        .section-left::before {
+          display: none;
+        }
+      }
+
+      .back-button {
+        position: fixed;
+        top: 2rem;
+        left: 2rem;
+        z-index: 10;
+      }
+
+      .back-button a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.25rem;
+        background: rgba(11, 11, 13, 0.9);
+        border: 1px solid #1a1a1a;
+        border-radius: 12px;
+        color: #a0a0a0;
+        text-decoration: none;
+        font-size: 0.9rem;
+        font-weight: 500;
+        transition: all 0.25s ease;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .back-button a:hover {
+        background: rgba(212, 160, 23, 0.1);
+        border-color: #d4a017;
+        color: #d4a017;
+        transform: translateY(-1px);
+        box-shadow: 0 8px 30px rgba(212, 160, 23, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="back-button">
+      <a href="/">← Back to Portfolio</a>
+    </div>
+    <div class="page-shell">
+      <header class="section-header">
+        <div>
+          <p class="label">BEYOND WORK</p>
+          <h1 class="title">EXPLORING.<br />EXPERIENCING.<br />GROWING.</h1>
+          <p class="subtitle">A glimpse of the things that keep me energized and inspired outside of work.</p>
+        </div>
+
+        <div class="hero-strip fade-up" data-animate>
+          <div class="card-placeholder" style="background-image: url('/gallery_images/hero-1.jpg'); background-size: cover; background-position: center;"><span class="card-overlay"></span></div>
+          <div class="card-placeholder" style="background-image: url('/gallery_images/hero-2.jpg'); background-size: cover; background-position: center;"><span class="card-overlay"></span></div>
+          <div class="card-placeholder" style="background-image: url('/gallery_images/hero-3.jpg'); background-size: cover; background-position: center;"><span class="card-overlay"></span></div>
+          <div class="card-placeholder" style="background-image: url('/gallery_images/hero-4.jpg'); background-size: cover; background-position: center;"><span class="card-overlay"></span></div>
+        </div>
+      </header>
+
+      <main>
+        <section class="section-block">
+          <div class="section-row fade-up" data-animate>
+            <div class="section-left fade-up" data-animate>
+              <div class="section-icon">🏔</div>
+              <div>
+                <p style="font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase; color: rgba(212, 160, 23, 0.72); margin: 0 0 0.75rem 0;">01 / EXPLORE</p>
+                <h2 class="section-title">TREKKING</h2>
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                  <p class="section-copy" style="margin: 0;">Mountains have always been my reset.</p>
+                  <p class="section-copy" style="margin: 0;">I've explored a range of trails across Karnataka, including Kumara Parvatha (Kukke–Kukke route), Savandurga, Kaivara Betta, and the Gokarna Beach Trek.</p>
+                  <p class="section-copy" style="margin: 0;">Growing up in Garhwal, Uttarakhand, I was naturally drawn to the mountains early on. Local treks during childhood built a lasting connection with high-altitude landscapes.</p>
+                  <p class="section-copy" style="margin: 0;">Today, trekking remains a constant; a space to disconnect, reflect, and push limits.</p>
+                </div>
+              </div>
+            </div>
+            <div class="section-right">
+              <div class="image-row" data-animate>
+                <div class="card-placeholder" style="background-image: url('/gallery_images/trekking/trekking-1.jpg'); background-size: cover; background-position: center;"><span class="card-overlay"></span></div>
+                <div class="card-placeholder" style="background-image: url('/gallery_images/trekking/trekking-2.jpg'); background-size: cover; background-position: center;"><span class="card-overlay"></span></div>
+                <div class="card-placeholder" style="background-image: url('/gallery_images/trekking/trekking-3.jpg'); background-size: cover; background-position: center;"><span class="card-overlay"></span></div>
+                <div class="card-placeholder" style="background-image: url('/gallery_images/trekking/trekking-4.jpg'); background-size: cover; background-position: center;"><span class="card-overlay"></span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <div class="section-row fade-up" data-animate>
+            <div class="section-left fade-up" data-animate>
+              <div class="section-icon">✈️</div>
+              <div>
+                <p style="font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase; color: rgba(212, 160, 23, 0.72); margin: 0 0 0.75rem 0;">02 / EXPERIENCE</p>
+                <h2 class="section-title">TRAVEL</h2>
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                  <p class="section-copy" style="margin: 0;">I enjoy exploring diverse landscapes; from coastal towns to mountain regions.</p>
+                  <p class="section-copy" style="margin: 0;">Some of the places I've travelled include Gokarna (solo), Alleppey, Chikkamagaluru, Coorg, Chennai, Kochi, and multiple cities around Bangalore and Mysore.</p>
+                  <p class="section-copy" style="margin: 0;">Beyond the south, I've also travelled across North India; including Delhi, Agra, Rajasthan, and Lucknow; along with a trip to Nepal.</p>
+                  <p class="section-copy" style="margin: 0;">Each place offers a different perspective, shaping how I observe culture, environment, and people.</p>
+                </div>
+              </div>
+            </div>
+            <div class="section-right">
+              <div class="image-row" data-animate>
+                <div class="card-placeholder" style="background-image: url('/gallery_images/travel/travel-1.jpg'); background-size: cover; background-position: center;"><span class="card-overlay"></span></div>
+                <div class="card-placeholder" style="background-image: url('/gallery_images/travel/travel-2.jpg'); background-size: cover; background-position: center;"><span class="card-overlay"></span></div>
+                <div class="card-placeholder" style="background-image: url('/gallery_images/travel/travel-3.jpg'); background-size: cover; background-position: center;"><span class="card-overlay"></span></div>
+                <div class="card-placeholder" style="background-image: url('/gallery_images/travel/travel-4.jpg'); background-size: cover; background-position: center;"><span class="card-overlay"></span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <div class="section-row fade-up" data-animate>
+            <div class="section-left fade-up" data-animate>
+              <div class="section-icon">⚽</div>
+              <div>
+                <p style="font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase; color: rgba(212, 160, 23, 0.72); margin: 0 0 0.75rem 0;">03 / MOVE</p>
+                <h2 class="section-title">SPORTS</h2>
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                  <p class="section-copy" style="margin: 0;">Sports have always played a key role in keeping me active and competitive.</p>
+                  <p class="section-copy" style="margin: 0;">I regularly play outdoor sports like football, cricket, and pickleball. Indoors, I enjoy games like foosball and other casual formats.</p>
+                  <p class="section-copy" style="margin: 0;">Beyond fitness, sports have helped me build discipline, teamwork, and a balanced mindset.</p>
+                </div>
+              </div>
+            </div>
+            <div class="section-right">
+              <div class="image-row" data-animate>
+                <div class="card-placeholder" style="background-image: url('/gallery_images/sports/sports-1.jpg'); background-size: cover; background-position: center;"><span class="card-overlay"></span></div>
+                <div class="card-placeholder" style="background-image: url('/gallery_images/sports/sports-2.jpg'); background-size: cover; background-position: center;"><span class="card-overlay"></span></div>
+                <div class="card-placeholder" style="background-image: url('/gallery_images/sports/sports-3.jpg'); background-size: cover; background-position: center;"><span class="card-overlay"></span></div>
+                <div class="card-placeholder" style="background-image: url('/gallery_images/sports/sports-4.jpg'); background-size: cover; background-position: center;"><span class="card-overlay"></span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-block">
+          <div class="section-row fade-up" data-animate>
+            <div class="section-left fade-up" data-animate>
+              <div class="section-icon">🏍️</div>
+              <div>
+                <p style="font-size: 0.75rem; letter-spacing: 0.35em; text-transform: uppercase; color: rgba(212, 160, 23, 0.72); margin: 0 0 0.75rem 0;">04 / FREEDOM</p>
+                <h2 class="section-title">BIKES</h2>
+                <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                  <p class="section-copy" style="margin: 0;">Biking represents freedom and exploration in its simplest form.</p>
+                  <p class="section-copy" style="margin: 0;">I've been on multiple rides, including a memorable trip to Coorg, and plan to explore more routes over time.</p>
+                  <p class="section-copy" style="margin: 0;">I'm currently planning to get my own bike; this section will continue to evolve with future rides and experiences.</p>
+                </div>
+              </div>
+            </div>
+            <div class="section-right">
+              <div class="image-row" data-animate>
+                <div class="card-placeholder" style="background-image: url('/gallery_images/bikes/bikes-1.jpg'); background-size: cover; background-position: center;"><span class="card-overlay"></span></div>
+                <div class="card-placeholder" style="background-image: url('/gallery_images/bikes/bikes-2.jpg'); background-size: cover; background-position: center;"><span class="card-overlay"></span></div>
+                <div class="card-placeholder" style="background-image: url('/gallery_images/bikes/bikes-3.jpg'); background-size: cover; background-position: center;"><span class="card-overlay"></span></div>
+                <div class="card-placeholder" style="background-image: url('/gallery_images/bikes/bikes-4.jpg'); background-size: cover; background-position: center;"><span class="card-overlay"></span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const observers = document.querySelectorAll('[data-animate]');
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              // For left content, add delay
+              const leftContent = entry.target.querySelector('.section-left');
+              if (leftContent) {
+                leftContent.style.transitionDelay = '0.1s';
+              }
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      observers.forEach((element) => observer.observe(element));
+    </script>
+  </body>
+</html>

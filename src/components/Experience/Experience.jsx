@@ -1,95 +1,129 @@
 import React from "react";
-import { experiences } from "../../constants"; // Import your data
+import { motion } from "framer-motion";
+import { experiences } from "../../constants";
 
 const Experience = () => {
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
-    <section
+    <motion.section
       id="experience"
-      className="py-24 pb-24 px-[12vw] md:px-[7vw] lg:px-[16vw] font-sans bg-skills-gradient clip-path-custom-2"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true, margin: "-100px" }}
+      className="py-24 px-[12vw] md:px-[7vw] lg:px-[16vw] font-sans relative"
     >
-      {/* Section Title */}
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold text-white">EXPERIENCE</h2>
-        <div className="w-32 h-1 bg-purple-500 mx-auto mt-4"></div>
-        <p className="text-gray-400 mt-4 text-lg font-semibold">
-          A collection of my work experience and the roles I have taken in
-          various organizations
+        <h2 className="text-4xl sm:text-5xl font-bold text-white">EXPERIENCE</h2>
+        <div className="mx-auto mt-4 h-1 w-32 rounded-full bg-gradient-to-r from-[#EAB308] via-[#f59e0b] to-[#EAB308]"></div>
+        <p className="text-[#e5c16a]/80 mt-4 text-lg font-medium max-w-2xl mx-auto">
+          A journey through impactful roles and collaborative projects.
         </p>
       </div>
 
-      {/* Timeline Container */}
-      <div className="relative">
-        {/* Vertical Line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-[2px] bg-white h-full"></div>
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+        className="relative"
+      >
+        {/* Timeline gradient line */}
+        <div className="absolute left-1/2 top-0 h-full w-0.5 bg-gradient-to-b from-transparent via-[#EAB308]/50 to-transparent opacity-75"></div>
 
         {experiences.map((experience, index) => (
-          <div
+          <motion.div
             key={experience.id}
+            variants={cardVariants}
             className={`relative flex flex-col sm:flex-row items-center mb-24 ${
               index % 2 === 0 ? "sm:justify-end" : "sm:justify-start"
             }`}
           >
-            {/* Timeline Circle */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 bg-gray-400 border-4 border-[#8245ec] w-14 h-14 sm:w-16 sm:h-16 rounded-full flex justify-center items-center z-10">
-              <img
-                src={experience.img}
-                alt={experience.company}
-                className="w-full h-full object-cover rounded-full"
-              />
+            {/* Logo circle on timeline */}
+            <div className="absolute left-1/2 top-8 transform -translate-x-1/2 z-10">
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-white/10 bg-slate-950/80 p-3 backdrop-blur-md shadow-[0_0_28px_rgba(234,179,8,0.22)]"
+              >
+                <img
+                  src={experience.img}
+                  alt={experience.company}
+                  className="h-full w-full object-contain"
+                />
+              </motion.div>
             </div>
 
-            {/* Content Card */}
-            <div
-              className={`w-full sm:w-[40%] p-6 sm:p-8 rounded-2xl shadow-2xl border border-white bg-gray-900 backdrop-blur-md shadow-[0_0_20px_1px_rgba(130,69,236,0.3)] transform transition-transform duration-300 hover:scale-105 mt-20 sm:mt-0 ${
-                index % 2 === 0
-                  ? "sm:mr-[calc(50%+2rem)]" // pushes right card to the right of the line
-                  : "sm:ml-[calc(50%+2rem)]" // pushes left card to the left of the line
+            {/* Experience card */}
+            <motion.div
+              whileHover={{ y: -4 }}
+              transition={{ duration: 0.25 }}
+              className={`w-full sm:w-[42%] p-8 rounded-[2rem] border border-white/10 bg-slate-900/40 backdrop-blur-md shadow-[0_20px_60px_rgba(234,179,8,0.08)] transition-all duration-300 ${
+                index % 2 === 0 ? "sm:mr-[calc(50%+2.5rem)]" : "sm:ml-[calc(50%+2.5rem)]"
               }`}
             >
-              {/* Flex container for image and text */}
-              <div className="flex items-center space-x-6">
-                <div className="w-16 h-16 bg-white rounded-md overflow-hidden">
-                  <img
-                    src={experience.img}
-                    alt={experience.company}
-                    className="w-full h-full object-cover"
-                  />
+              {/* Inner rim light */}
+              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-b from-white/5 via-transparent to-transparent pointer-events-none opacity-70" />
+
+              <div className="relative z-10">
+                {/* Role and company */}
+                <div className="mb-6">
+                  <h3 className="text-2xl font-semibold tracking-tight text-white">
+                    {experience.role}
+                  </h3>
+                  <p className="text-sm uppercase tracking-[0.28em] text-[#e5c16a]/70 mt-2">
+                    {experience.company}
+                  </p>
+                  <p className="text-xs uppercase tracking-[0.24em] text-[#9ca3af] mt-3">
+                    {experience.date}
+                  </p>
                 </div>
 
-                <div className="flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-semibold text-white">
-                      {experience.role}
-                    </h3>
-                    <h4 className="text-md sm:text-sm text-gray-300">
-                      {experience.company}
-                    </h4>
+                {/* Description */}
+                <p className="text-[#d1d5db] leading-relaxed text-sm">
+                  {experience.desc}
+                </p>
+
+                {/* Skills */}
+                <div className="mt-6">
+                  <h5 className="text-xs uppercase tracking-[0.3em] text-[#e5c16a]/70 font-semibold mb-3">
+                    Skills
+                  </h5>
+                  <div className="flex flex-wrap gap-2">
+                    {experience.skills.map((skill, idx) => (
+                      <motion.span
+                        key={idx}
+                        whileHover={{ scale: 1.05 }}
+                        className="inline-flex rounded-full px-3 py-1.5 text-xs font-medium border border-[#EAB308]/30 bg-white/5 text-[#EAB308] transition duration-200 hover:bg-[#EAB308]/10"
+                      >
+                        {skill}
+                      </motion.span>
+                    ))}
                   </div>
-                  <p className="text-sm text-gray-500 mt-2">{experience.date}</p>
                 </div>
               </div>
-
-              <p className="mt-4 text-gray-400">{experience.desc}</p>
-              <div className="mt-4">
-                <h5 className="font-medium text-white">Skills:</h5>
-                <ul className="flex flex-wrap mt-2">
-                  {experience.skills.map((skill, index) => (
-                    <li
-                      key={index}
-                      className="bg-[#8245ec] text-gray-300 px-4 py-1 text-xs sm:text-sm rounded-lg mr-2 mb-2 border border-gray-400"
-                    >
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         ))}
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 };
 
 export default Experience;
-  

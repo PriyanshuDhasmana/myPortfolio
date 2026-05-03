@@ -6,60 +6,53 @@ import Tilt from "react-parallax-tilt";
 const Skills = () => (
   <section
     id="skills"
-    className="py-24 pb-24 px-[12vw] md:px-[7vw] lg:px-[20vw] font-sans bg-skills-gradient clip-path-custom"
+    className="py-24 px-[12vw] md:px-[7vw] lg:px-[20vw] font-sans relative overflow-hidden"
   >
-    {/* Section Title */}
-    <div className="text-center mb-8">
-      <h2 className="text-3xl sm:text-4xl font-bold text-white">SKILLS</h2>
-      <div className="w-24 h-1 bg-[#8245ec] mx-auto mt-2"></div>
-      <p className="text-gray-400 mt-4 text-lg font-semibold">
-        A collection of my technical skills and expertise honed through various projects and experiences
-      </p>
+    <div className="pointer-events-none absolute left-1/2 top-8 h-72 w-72 -translate-x-1/2 rounded-full bg-[#EAB308]/10 blur-3xl" />
+    <div className="pointer-events-none absolute right-0 top-28 h-64 w-64 rounded-full bg-[#F59E0B]/12 blur-3xl" />
+    <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#020308] via-transparent to-transparent" />
+    <div className="text-center mb-12 relative z-10">
+      <h2 className="text-4xl sm:text-5xl font-bold text-white">SKILLS</h2>
+      <div className="mx-auto mt-4 h-1 w-28 rounded-full bg-gradient-to-r from-[#ffd166] via-[#f59e0b] to-[#ffd166]"></div>
+      
     </div>
 
-    {/* Skill Categories */}
-    <div className="flex flex-wrap gap-4 lg:gap-8 py-10 justify-between">
+    <div className="grid gap-6 lg:grid-cols-2">
       {SkillsInfo.map((category) => (
-        <div
+        <Tilt
           key={category.title}
-          className="bg-gray-900 backdrop-blur-md px-6 sm:px-8 py-6 sm:py-5 mb-10 w-full sm:w-[46%] lg:w-[44%] rounded-xl border border-white 
-          shadow-[0_0_15px_1px_rgba(130,69,236,0.25)] transition-all duration-300 hover:shadow-[0_0_25px_2px_rgba(130,69,236,0.4)]"
+          className="glass-card rounded-[2rem] p-8 border border-white/10"
+          tiltMaxAngleX={15}
+          tiltMaxAngleY={15}
+          perspective={1000}
+          scale={1.03}
+          transitionSpeed={900}
+          gyroscope={true}
         >
-          <h3 className="text-2xl sm:text-2xl font-semibold text-gray-400 mb-4 text-center tracking-wide">
-            {category.title}
-          </h3>
-
-          {/* Skill Items */}
-          <Tilt
-            key={category.title}
-            tiltMaxAngleX={20}
-            tiltMaxAngleY={20}
-            perspective={1000}
-            scale={1.05}
-            transitionSpeed={1000}
-            gyroscope={true}
-          >
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 w-full">
-              {category.skills.map((skill) => (
-                <div
-                  key={skill.name}
-                  className="flex flex-col items-center justify-center bg-transparent border border-gray-700 rounded-xl py-2 sm:py-3 px-1 text-center hover:border-[#8245ec] transition-all"
-                >
-                  <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center">
-                    <img
-                      src={skill.logo}
-                      alt={`${skill.name} logo`}
-                      className="max-w-full max-h-full object-contain"
-                    />
-                  </div>
-                  <span className="text-xs sm:text-sm text-gray-300 mt-2">
-                    {skill.name}
-                  </span>
+          <div className="mb-6 flex items-center justify-between">
+            <h3 className="text-2xl font-semibold text-white">{category.title}</h3>
+            <div className="h-1 w-20 rounded-full bg-gradient-to-r from-[#ffd166] to-[#f59e0b]"></div>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {category.skills.map((skill) => (
+              <div
+                key={skill.name}
+                className="group flex flex-col items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-4 text-center transition duration-300 hover:-translate-y-1 hover:border-[#ffd166]/60 hover:bg-white/10"
+              >
+                <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#090702] border border-[#ffd166]/15 shadow-[inset_0_0_18px_rgba(255,209,102,0.08)] transition duration-300 group-hover:shadow-[0_0_25px_rgba(255,209,102,0.18)]">
+                  <img
+                    src={skill.logo}
+                    alt={`${skill.name} logo`}
+                    className="max-h-10 max-w-10 object-contain"
+                  />
                 </div>
-              ))}
-            </div>
-          </Tilt>
-        </div>
+                <span className="text-sm font-medium text-gray-200 transition group-hover:text-white">
+                  {skill.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </Tilt>
       ))}
     </div>
   </section>

@@ -86,15 +86,14 @@ export const SkillsInfo = [
     ],
   },
   {
-    title: 'Tools',
+    title: 'Cloud & DevOps',
     skills: [
-      { name: 'Git', logo: gitLogo },
-      { name: 'GitHub', logo: githubLogo },
-      { name: 'VS Code', logo: vscodeLogo },
-      { name: 'Postman', logo: postmanLogo },
-      { name: 'Compass', logo: mcLogo },
+      { name: 'Firebase', logo: firebaseLogo },
       { name: 'Vercel', logo: vercelLogo },
-      { name: 'Figma', logo: figmaLogo },
+      { name: 'Netlify', logo: netlifyLogo },
+      { name: 'GitHub', logo: githubLogo },
+      { name: 'Postman', logo: postmanLogo },
+      { name: 'VS Code', logo: vscodeLogo },
     ],
   },
 ];
@@ -106,7 +105,7 @@ export const SkillsInfo = [
       role: "Associate Engineer",
       company: "Caterpillar Inc.",
       date: "July 2025 - Present",
-      desc: "Currently working in the role of Associate Engineer at Caterpillar Inc., contributing to the development and maintenance of web applications that enhance user experience and operational efficiency. Collaborating with cross-functional teams to implement innovative solutions using modern web technologies.",
+      desc: "Building and maintaining web applications to enhance user experience and operational efficiency. Leveraged Agentic AI across the SDLC to streamline workflows and improve development efficiency. Led end-to-end design of innovative features, driving measurable improvements in customer experience.",
       skills: [
         "HTML",
         "CSS",
@@ -115,6 +114,8 @@ export const SkillsInfo = [
         "Java",
         "Various Protocols",
         "Python",
+        "Agentic AI in SDLC",
+        "JProfiler",
       ],
     },
     {
@@ -161,8 +162,8 @@ export const SkillsInfo = [
       school: "BMS College of Engineering, Bangalore",
       date: "Dec 2025 - June 2025",
       grade: "7.8 CGPA",
-      desc: "I completed my Bachelor's degree in Bachelor of Engineering(BE) from BMS College of Engineering, Bangalore. Throughout my studies, I was immersed in a variety of subjects that deepened my understanding of computing and technology. From exploring Data Structures and Algorithms to diving into Web Development and Database Management Systems, I gained practical insights into the world of software development. My time at BMS College allowed me to work on projects that applied theoretical concepts to real-world problems.",
-      degree: "Bachelor of Engineering - BE",
+      desc: "Activities and societies: IEEE Computer Society, BMSCE Mountaineering Club, Upagraha BMSCE, BMSCE Utsav, BMSCE Phase Shift.",
+      degree: "Electronics & Communication Engg.",
     },
     {
       id: 1,
@@ -179,7 +180,7 @@ export const SkillsInfo = [
       school: "SSMV, Shahjahanpur",
       date: "Apr 2017 - March 2018",
       grade: "92%",
-      desc: "I completed my class 10 education from SSMV, Shahjahanpur, under the CBSE board, where I studied Science with Computer.",
+      desc: "I completed my class 10 education from SSMV, Shahjahanpur, under the CBSE board.",
       degree: "CBSE(X), Science with Computer Application",
     },
   ];

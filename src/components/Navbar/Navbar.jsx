@@ -4,24 +4,19 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Detect scroll and change navbar background
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 30);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Smooth scroll function
   const handleMenuItemClick = (sectionId) => {
-    setActiveSection(sectionId);
     setIsOpen(false);
-
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
@@ -34,111 +29,103 @@ const Navbar = () => {
     { id: "experience", label: "Experience" },
     { id: "work", label: "Projects" },
     { id: "education", label: "Education" },
+    { id: "contact", label: "Contact" },
   ];
 
   return (
-    <nav
-      className={`fixed top-0 w-full z-50 transition duration-300 px-[7vw] md:px-[7vw] lg:px-[20vw] ${
-        isScrolled ? "bg-[#050414] bg-opacity-50 backdrop-blur-md shadow-md" : "bg-transparent"
-      }`}
-    >
-      <div className="text-white py-5 flex justify-between items-center">
-        {/* Logo */}
-        <div className="text-lg font-semibold cursor-pointer">
-          <span className="text-[#8245ec]">&lt;</span>
-          <span className="text-white">Priyanshu</span>
-          <span className="text-[#8245ec]">/</span>
-          <span className="text-white">Dhasmana</span>
-          <span className="text-[#8245ec]">&gt;</span>
-        </div>
+    <nav className="fixed inset-x-0 top-4 z-50 px-4 sm:px-6 lg:px-20">
+      <div className={`mx-auto flex max-w-[1200px] items-center justify-between rounded-[1.75rem] border border-white/10 bg-[#05060f]/95 px-4 py-3 shadow-[0_24px_60px_rgba(0,0,0,0.22)] backdrop-blur-xl transition duration-300 ${
+          isScrolled ? "bg-[#05060f]/100 shadow-[0_30px_80px_rgba(0,0,0,0.35)]" : ""
+        }`}>
+        <button
+          onClick={() => handleMenuItemClick('about')}
+          className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#e6c87a] transition hover:text-white"
+          aria-label="Go to hero section"
+        >
+          <span className="flex h-10 w-10 items-center justify-center rounded-3xl border border-[#e6c87a]/20 bg-[#121521] text-sm shadow-[0_0_18px_rgba(230,200,122,0.12)]">
+            PD
+          </span>
+          <span className="hidden md:block">Priyanshu / Dhasmana</span>
+        </button>
 
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 text-gray-300">
+        <ul className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
           {menuItems.map((item) => (
-            <li
-              key={item.id}
-              className={`cursor-pointer hover:text-[#8245ec] ${
-                activeSection === item.id ? "text-[#8245ec]" : ""
-              }`}
-            >
-              <button onClick={() => handleMenuItemClick(item.id)}>
+            <li key={item.id} className="relative group">
+              <button
+                onClick={() => handleMenuItemClick(item.id)}
+                className="transition text-slate-200 hover:text-white"
+              >
                 {item.label}
               </button>
+              <span className="absolute left-0 -bottom-2 h-[2px] w-0 bg-gradient-to-r from-[#e6c87a] via-[#f59e0b] to-[#e6c87a] transition-all duration-300 group-hover:w-full"></span>
             </li>
           ))}
         </ul>
 
-        {/* Social Icons */}
-        <div className="hidden md:flex space-x-4">
+        <div className="hidden items-center gap-3 md:flex">
           <a
             href="https://github.com/PriyanshuDhasmana"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-[#8245ec]"
+            className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-[#e6c87a] transition hover:border-[#e6c87a]/50 hover:bg-[#171921]/90"
+            aria-label="GitHub"
           >
-            <FaGithub size={24} />
+            <FaGithub size={18} />
           </a>
           <a
             href="https://www.linkedin.com/in/priyanshu-dhasmana-b7a12b1b6"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-[#8245ec]"
+            className="flex h-10 w-10 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-[#e6c87a] transition hover:border-[#e6c87a]/50 hover:bg-[#171921]/90"
+            aria-label="LinkedIn"
           >
-            <FaLinkedin size={24} />
+            <FaLinkedin size={18} />
           </a>
         </div>
 
-        {/* Mobile Menu Icon */}
-        <div className="md:hidden">
-          {isOpen ? (
-            <FiX
-              className="text-3xl text-[#8245ec] cursor-pointer"
-              onClick={() => setIsOpen(false)}
-            />
-          ) : (
-            <FiMenu
-              className="text-3xl text-[#8245ec] cursor-pointer"
-              onClick={() => setIsOpen(true)}
-            />
-          )}
-        </div>
+        <button
+          className="md:hidden rounded-full border border-white/10 bg-white/5 p-2 text-[#e6c87a] transition hover:bg-[#171921]/90"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle navigation menu"
+        >
+          {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+        </button>
       </div>
 
-      {/* Mobile Menu Items */}
       {isOpen && (
-        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 w-4/5 bg-[#050414] bg-opacity-50 backdrop-filter backdrop-blur-lg z-50 rounded-lg shadow-lg md:hidden">
-          <ul className="flex flex-col items-center space-y-4 py-4 text-gray-300">
+        <div className="absolute right-4 top-[6.5rem] z-50 w-[calc(100%-2rem)] rounded-[2rem] border border-white/10 bg-[#06080f]/95 p-5 backdrop-blur-2xl shadow-[0_30px_90px_rgba(0,0,0,0.35)] md:hidden">
+          <ul className="flex flex-col gap-4 text-slate-200 text-base">
             {menuItems.map((item) => (
-              <li
-                key={item.id}
-                className={`cursor-pointer hover:text-white ${
-                  activeSection === item.id ? "text-[#8245ec]" : ""
-                }`}
-              >
-                <button onClick={() => handleMenuItemClick(item.id)}>
+              <li key={item.id}>
+                <button
+                  onClick={() => handleMenuItemClick(item.id)}
+                  className="w-full rounded-2xl px-4 py-3 text-left transition hover:bg-white/5 hover:text-white"
+                >
                   {item.label}
                 </button>
               </li>
             ))}
-            <div className="flex space-x-4">
-              <a
-                href="https://github.com/PriyanshuDhasmana"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white"
-              >
-                <FaGithub size={24} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/priyanshu-dhasmana-b7a12b1b6"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white"
-              >
-                <FaLinkedin size={24} />
-              </a>
-            </div>
           </ul>
+          <div className="mt-6 flex items-center justify-center gap-4">
+            <a
+              href="https://github.com/PriyanshuDhasmana"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-[#e6c87a] transition hover:border-[#e6c87a]/50 hover:bg-[#171921]/90"
+              aria-label="GitHub"
+            >
+              <FaGithub size={20} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/priyanshu-dhasmana-b7a12b1b6"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-[#e6c87a] transition hover:border-[#e6c87a]/50 hover:bg-[#171921]/90"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedin size={20} />
+            </a>
+          </div>
         </div>
       )}
     </nav>

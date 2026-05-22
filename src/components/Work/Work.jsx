@@ -62,13 +62,15 @@ const Work = () => {
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm">
           <div className="relative w-full max-w-4xl overflow-hidden rounded-[2rem] border border-white/10 bg-[#050110]/95 shadow-[0_30px_100px_rgba(0,0,0,0.65)]">
-            <button
-              onClick={handleCloseModal}
-              className="absolute right-5 top-5 text-4xl text-white/80 transition hover:text-[#ffd166]"
-            >
-              &times;
-            </button>
-            <div className="grid gap-6 lg:grid-cols-[1.5fr_1fr] p-8">
+            <div className="flex justify-end p-4">
+              <button
+                onClick={handleCloseModal}
+                className="text-4xl text-white/80 transition hover:text-[#ffd166]"
+              >
+                &times;
+              </button>
+            </div>
+            <div className="grid gap-6 p-8 lg:grid-cols-[1.5fr_1fr]">
               <div className="rounded-[1.75rem] border border-[#ffd166]/15 bg-[#090702] p-6 shadow-[0_20px_60px_rgba(255,209,102,0.08)]">
                 <img
                   src={selectedProject.image}

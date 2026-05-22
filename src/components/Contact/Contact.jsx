@@ -71,14 +71,14 @@ const Contact = () => {
       initial={{ opacity: 0, y: 32 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="relative overflow-hidden py-24 px-[6vw] md:px-[7vw] lg:px-[12vw] font-sans"
+      className="relative overflow-hidden py-24 px-6 sm:px-[7vw] md:px-[7vw] lg:px-[12vw] font-sans"
     >
       <ToastContainer />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234,179,8,0.12),transparent_35%)] opacity-90" />
       <div className="pointer-events-none absolute inset-0 hero-celestial-grid" />
 
-      <div className="relative mx-auto grid w-full max-w-6xl gap-8 lg:grid-cols-12 items-stretch">
-        <div className="lg:col-span-5 order-1 flex h-full">
+      <div className="relative mx-auto grid w-full max-w-6xl gap-8 lg:grid-cols-12 items-start">
+        <div className="lg:col-span-5 order-1 flex h-full w-full min-w-0">
           <div className="glass-panel relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/40 p-8 shadow-[0_30px_120px_rgba(234,179,8,0.14)] backdrop-blur-xl h-full flex flex-col justify-between">
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#ffffff10] via-transparent to-[#020408]/50" />
             <div className="relative z-10 space-y-6">
@@ -141,7 +141,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="lg:col-span-7 order-2 flex h-full">
+        <div className="lg:col-span-7 order-2 flex h-full w-full min-w-0">
           <div className="glass-panel relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/45 p-8 shadow-[0_30px_120px_rgba(234,179,8,0.14)] backdrop-blur-xl h-full">
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#ffffff10] via-transparent to-[#020408]/60" />
             <form

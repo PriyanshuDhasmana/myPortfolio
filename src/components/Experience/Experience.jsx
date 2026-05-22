@@ -46,7 +46,7 @@ const Experience = () => {
         className="relative"
       >
         {/* Timeline gradient line */}
-        <div className="absolute left-1/2 top-0 h-full w-0.5 bg-gradient-to-b from-transparent via-[#EAB308]/50 to-transparent opacity-75"></div>
+        <div className="hidden sm:block absolute left-1/2 top-0 h-full w-0.5 bg-gradient-to-b from-transparent via-[#EAB308]/50 to-transparent opacity-75"></div>
 
         {experiences.map((experience, index) => (
           <motion.div
@@ -57,7 +57,7 @@ const Experience = () => {
             }`}
           >
             {/* Logo circle on timeline */}
-            <div className="absolute left-1/2 top-8 transform -translate-x-1/2 z-10">
+            <div className="relative mx-auto mb-6 sm:absolute sm:left-1/2 sm:top-8 sm:-translate-x-1/2 sm:mb-0 z-10">
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-white/10 bg-slate-950/80 p-3 backdrop-blur-md shadow-[0_0_28px_rgba(234,179,8,0.22)]"

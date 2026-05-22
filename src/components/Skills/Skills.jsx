@@ -21,7 +21,7 @@ const Skills = () => (
       {SkillsInfo.map((category) => (
         <Tilt
           key={category.title}
-          className="glass-card w-full rounded-[2rem] p-8 border border-white/10"
+          className="glass-card w-full min-w-0 rounded-[2rem] p-8 border border-white/10"
           tiltMaxAngleX={15}
           tiltMaxAngleY={15}
           perspective={1000}
@@ -37,7 +37,7 @@ const Skills = () => (
             {category.skills.map((skill) => (
               <div
                 key={skill.name}
-                className="group flex w-full max-w-[220px] flex-col items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-4 text-center transition duration-300 hover:-translate-y-1 hover:border-[#ffd166]/60 hover:bg-white/10"
+                className="group flex w-full min-w-0 flex-col items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-4 text-center transition duration-300 hover:-translate-y-1 hover:border-[#ffd166]/60 hover:bg-white/10"
               >
                 <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#090702] border border-[#ffd166]/15 shadow-[inset_0_0_18px_rgba(255,209,102,0.08)] transition duration-300 group-hover:shadow-[0_0_25px_rgba(255,209,102,0.18)]">
                   <img

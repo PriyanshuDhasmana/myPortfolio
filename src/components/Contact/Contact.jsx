@@ -79,7 +79,7 @@ const Contact = () => {
 
       <div className="relative mx-auto grid w-full max-w-6xl gap-8 lg:grid-cols-12 items-start">
         <div className="lg:col-span-5 order-1 flex h-full w-full min-w-0">
-          <div className="glass-panel relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/40 p-8 shadow-[0_30px_120px_rgba(234,179,8,0.14)] backdrop-blur-xl h-full flex flex-col justify-between">
+          <div className="glass-panel relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/40 p-8 shadow-[0_30px_120px_rgba(234,179,8,0.14)] backdrop-blur-xl h-full w-full min-w-0 flex flex-col justify-between">
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#ffffff10] via-transparent to-[#020408]/50" />
             <div className="relative z-10 space-y-6">
               <div className="space-y-4">
@@ -99,14 +99,14 @@ const Contact = () => {
                     <button
                       type="button"
                       key={item.label}
-                      className="group relative flex items-start gap-4 rounded-[1.75rem] border border-white/10 bg-white/5 px-5 py-5 text-left backdrop-blur-lg transition duration-300 hover:border-[#EAB308]/40 hover:bg-white/10"
+                      className="group relative flex w-full min-w-0 flex-col items-start gap-4 rounded-[1.75rem] border border-white/10 bg-white/5 px-5 py-5 text-left backdrop-blur-lg transition duration-300 hover:border-[#EAB308]/40 hover:bg-white/10"
                     >
-                      <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#EAB308]/10 text-[#EAB308] shadow-[0_0_20px_rgba(234,179,8,0.12)]">
+                      <span className="flex h-11 w-11 min-w-0 items-center justify-center rounded-2xl bg-[#EAB308]/10 text-[#EAB308] shadow-[0_0_20px_rgba(234,179,8,0.12)]">
                         <Icon className="h-5 w-5" />
                       </span>
-                      <span>
+                      <span className="min-w-0 w-full break-words">
                         <p className="text-xs uppercase tracking-[0.32em] text-[#e5c16a]/70">{item.label}</p>
-                        <p className="mt-1 text-base font-semibold text-white">{item.value}</p>
+                        <p className="mt-1 text-base font-semibold text-white break-words">{item.value}</p>
                       </span>
                     </button>
                   );
@@ -142,12 +142,12 @@ const Contact = () => {
         </div>
 
         <div className="lg:col-span-7 order-2 flex h-full w-full min-w-0">
-          <div className="glass-panel relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/45 p-8 shadow-[0_30px_120px_rgba(234,179,8,0.14)] backdrop-blur-xl h-full">
+          <div className="glass-panel relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/45 p-8 shadow-[0_30px_120px_rgba(234,179,8,0.14)] backdrop-blur-xl h-full w-full min-w-0">
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#ffffff10] via-transparent to-[#020408]/60" />
             <form
               ref={form}
               onSubmit={sendEmail}
-              className="relative z-10 grid gap-5"
+              className="relative z-10 grid gap-5 min-w-0 w-full"
             >
               <div className="grid gap-5 sm:grid-cols-2">
                 {[
@@ -188,7 +188,7 @@ const Contact = () => {
                   placeholder=" "
                   required
                   rows={6}
-                  className="peer min-h-[220px] w-full resize-y rounded-[1.5rem] border border-white/10 bg-slate-900/50 px-5 py-4 text-white outline-none transition focus:border-[#EAB308] focus:ring-2 focus:ring-[#EAB308]/20"
+                  className="peer min-h-[220px] w-full min-w-0 resize-y rounded-[1.5rem] border border-white/10 bg-slate-900/50 px-5 py-4 text-white outline-none transition focus:border-[#EAB308] focus:ring-2 focus:ring-[#EAB308]/20"
                 />
                 <label className="pointer-events-none absolute left-5 top-1/2 -translate-y-1/2 text-sm text-[#9ca3af] transition-all duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-[#9ca3af] peer-focus:-top-2 peer-focus:text-xs peer-focus:text-[#EAB308]">
                   Message

@@ -61,17 +61,17 @@ const Work = () => {
 
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm">
-          <div className="relative w-full max-w-full xl:max-w-4xl overflow-hidden rounded-[2rem] border border-white/10 bg-[#050110]/95 shadow-[0_30px_100px_rgba(0,0,0,0.65)]">
-            <div className="flex justify-end p-4">
+          <div className="relative w-full max-w-full xl:max-w-4xl max-h-[calc(100vh-3rem)] overflow-hidden rounded-[2rem] border border-white/10 bg-[#050110]/95 shadow-[0_30px_100px_rgba(0,0,0,0.65)]">
+            <div className="absolute right-4 top-4 z-20">
               <button
                 onClick={handleCloseModal}
-                className="text-4xl text-white/80 transition hover:text-[#ffd166]"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#0B0D12]/95 text-3xl text-white/80 transition hover:text-[#ffd166]"
               >
                 &times;
               </button>
             </div>
-            <div className="grid gap-6 p-6 lg:grid-cols-[1.5fr_1fr]">
-              <div className="rounded-[1.75rem] border border-[#ffd166]/15 bg-[#090702] p-6 shadow-[0_20px_60px_rgba(255,209,102,0.08)]">
+            <div className="grid gap-6 overflow-y-auto p-4 lg:grid-cols-[1.5fr_1fr] lg:p-6 max-h-[calc(100vh-5rem)]">
+              <div className="rounded-[1.75rem] border border-[#ffd166]/15 bg-[#090702] p-4 shadow-[0_20px_60px_rgba(255,209,102,0.08)] overflow-hidden aspect-[16/9] sm:aspect-[4/3]">
                 <img
                   src={selectedProject.image}
                   alt={selectedProject.title}

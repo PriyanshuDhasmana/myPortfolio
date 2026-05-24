@@ -6,7 +6,7 @@ import profileImage from '../../assets/profile2.png';
 const About = () => {
 
   return (
-    <section id="about" className="relative min-h-screen overflow-hidden bg-transparent text-white">
+    <section id="about" className="relative min-h-[calc(100vh-5rem)] md:min-h-screen overflow-hidden bg-transparent text-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,209,102,0.06),transparent_18%),radial-gradient(circle_at_bottom_right,rgba(255,255,255,0.02),transparent_28%)]" />
       <div className="absolute inset-0 hero-celestial-grid opacity-5" />
       <div className="absolute inset-0 hero-network-vertices opacity-12" />
@@ -16,7 +16,7 @@ const About = () => {
       <div className="absolute left-[-16%] top-24 hidden h-[320px] w-[320px] rounded-full bg-[#EAB308]/20 blur-[120px] animate-blob-slow xl:block" />
       <div className="absolute right-[-14%] top-[28%] hidden h-[260px] w-[260px] rounded-full bg-[#F59E0B]/15 blur-[100px] animate-blob-slower xl:block" />
 
-      <div className="relative z-10 mx-auto max-w-[1200px] px-3 py-3 sm:px-10 md:py-16 lg:px-24">
+      <div className="relative z-10 mx-auto max-w-[1200px] px-3 py-3 sm:px-10 md:py-12 lg:px-24">
         <div className="grid items-start gap-4 lg:gap-10 lg:grid-cols-[0.95fr_1.05fr]">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
@@ -117,7 +117,7 @@ const About = () => {
             <motion.div
               whileHover={{ scale: 1.01, y: -2 }}
               transition={{ duration: 0.25, ease: 'easeOut' }}
-              className="group relative isolate w-full max-w-full h-[360px] aspect-[4/5] md:h-[520px] md:aspect-auto overflow-hidden rounded-2xl md:rounded-[2.75rem] border border-[#1b1f26]/40 md:border-[#1b1f26]/70 bg-[#060812]/95 md:bg-white/5 shadow-[0_18px_60px_rgba(0,0,0,0.18)] md:shadow-[0_40px_120px_rgba(0,0,0,0.35)] backdrop-blur-md -mt-1 md:mt-0"
+              className="group relative isolate w-full max-w-full h-[300px] aspect-[4/5] md:h-[480px] md:aspect-auto overflow-hidden rounded-2xl md:rounded-[2.75rem] border border-[#1b1f26]/40 md:border-[#1b1f26]/70 bg-[#060812]/95 md:bg-white/5 shadow-[0_18px_60px_rgba(0,0,0,0.18)] md:shadow-[0_40px_120px_rgba(0,0,0,0.35)] backdrop-blur-md -mt-1 md:mt-0"
             >
               <div className="absolute inset-0 rounded-[2.75rem] border border-[rgba(255,255,255,0.08)] bg-[linear-gradient(135deg,rgba(255,255,255,0.08),transparent_30%)]" />
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(234,179,8,0.08),transparent_52%)] opacity-45" />

@@ -116,7 +116,7 @@ const Contact = () => {
               <div className="rounded-[2rem] border border-white/10 bg-white/5 p-6 backdrop-blur-lg">
                 <div className="flex items-center justify-between gap-4">
                   <p className="text-sm uppercase tracking-[0.3em] text-[#EAB308]/80">Socials</p>
-                  <div className="flex items-center gap-4">
+                  <div className="flex flex-wrap justify-end items-center gap-3 sm:gap-4">
                     {[
                       { Icon: FaGithub, href: "https://github.com" },
                       { Icon: FaLinkedin, href: "https://linkedin.com" },
@@ -127,9 +127,9 @@ const Contact = () => {
                         href={item.href}
                         target="_blank"
                         rel="noreferrer"
-                        whileHover={{ scale: 1.2, rotate: 5 }}
+                        whileHover={{ scale: 1.15, rotate: 5 }}
                         whileTap={{ scale: 0.98 }}
-                        className="inline-flex h-12 w-12 items-center justify-center rounded-3xl border border-white/10 bg-slate-950/70 text-[#EAB308] transition"
+                        className="inline-flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-3xl border border-white/10 bg-slate-950/70 text-[#EAB308] transition"
                       >
                         <item.Icon className="h-5 w-5" />
                       </motion.a>

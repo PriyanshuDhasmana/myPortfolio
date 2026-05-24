@@ -90,11 +90,22 @@ const Gallery = () => {
         </div>
       </div>
 
+      <div className="mt-8 flex justify-center md:hidden">
+        <button
+          type="button"
+          onClick={() => document.getElementById('trekking')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+          className="inline-flex items-center gap-2 rounded-full border border-[#D4A017] px-5 py-3 text-sm font-semibold text-[#D4A017] transition hover:bg-[#D4A017]/10"
+        >
+          Explore more
+          <span className="text-lg">↓</span>
+        </button>
+      </div>
+
       <div className="mt-16 space-y-16">
         {sectionData.map((section, index) => {
           const Icon = section.icon;
           return (
-            <div key={section.id} className="rounded-[20px] border border-[#1A1A1A] bg-[#09090B] p-8">
+            <div key={section.id} id={section.id} className="rounded-[20px] border border-[#1A1A1A] bg-[#09090B] p-8">
               <div className="grid gap-10 lg:grid-cols-[300px_1fr] lg:items-start">
                 <div className="space-y-5">
                   <div className="flex h-14 w-14 items-center justify-center rounded-[18px] border border-[#1A1A1A] bg-[#0B0B0D] text-[#D4A017] shadow-[0_0_20px_rgba(212,160,23,0.12)]">
@@ -114,7 +125,7 @@ const Gallery = () => {
 
                 <div className="space-y-6">
                   <div className="overflow-x-auto pb-2">
-                    <div className="grid min-w-[880px] gap-4 sm:min-w-0 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+                    <div className="inline-grid min-w-max grid-flow-col auto-cols-[minmax(220px,1fr)] gap-4 sm:grid-flow-row sm:min-w-0 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
                       {[...Array(5)].map((_, innerIndex) => (
                         <ImageCard key={innerIndex} />
                       ))}

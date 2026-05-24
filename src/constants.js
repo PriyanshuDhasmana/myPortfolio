@@ -44,7 +44,7 @@ import SSMVLogo from './assets/education_logo/SSMVLogo.jpg';
 
 
 // Project Section Logo's
-import githubdetLogo from './assets/work_logo/github_det.png';
+import volunteerApp from './assets/work_logo/volunteerApp.png';
 import FWCLogo from './assets/work_logo/FWCWebsite.png';
 import ecedept from './assets/work_logo/ecedept.png';
 import npmLogo from './assets/work_logo/npm.png';
@@ -188,13 +188,13 @@ export const SkillsInfo = [
   export const projects = [
     {
       id: 0,
-      title: "GitHub Profile Detective",
+      title: "Volunteer App",
       description:
-        "A powerful and user-friendly React.js application designed to uncover and showcase detailed GitHub profile information. Simply enter a GitHub username, and the app fetches comprehensive data, including profile stats, repositories, followers, and contributions. The intuitive interface ensures a seamless experience, making it a must-visit tool for developers and recruiters.",
-      image: githubdetLogo,
-      tags: ["HTML", "CSS", "JavaScript", "React JS", "API"],
-      github: "https://github.com/codingmastr/GitHub-Profile-Search-App-Using-React-JS",
-      webapp: "https://githubprofiledetective.netlify.app/",
+        "A polished and accessible volunteer engagement app built with Expo and React Native. Users can sign in, explore local volunteering opportunities, track donation events, manage notifications, and view their volunteer profile—all in a modern mobile-first experience. The app combines user authentication, theming, and seamless navigation for a compelling community-driven platform.",
+      image: volunteerApp,
+      tags: ["React Native", "Expo", "Firebase", "React Navigation", "Mobile App", "Web Support", "JavaScript", "UI/UX"],
+      github: "https://github.com/PriyanshuDhasmana/VolunteerApp",
+      webapp: "https://volunteer-app-henna.vercel.app/",
     },
     {
       id: 1,
@@ -218,16 +218,6 @@ export const SkillsInfo = [
     },
     {
       id: 3,
-      title: "Email Validator NPM Package",
-      description:
-        "An efficient and customizable NPM package for validating email addresses. Built using React.js and Node.js, it provides robust validation features to help developers ensure that email inputs meet required formats and standards.",
-      image: npmLogo,
-      tags: ["React JS", "Node.js", "NPM", "Validation"],
-      github: "https://github.com/codingmastr/cmtk-email-validator",
-      webapp: "https://www.npmjs.com/package/cmtk-email-validator",
-    },
-    {
-      id: 4,
       title: "Weather App",
       description:
         "A weather forecasting application that provides real-time weather updates and forecasts for any location. Built using React.js and Node.js, it offers a user-friendly interface and accurate weather data.",
@@ -237,7 +227,7 @@ export const SkillsInfo = [
       webapp: "https://weather-6fhdcajtq-priyanshudhasmanas-projects.vercel.app/",
     },
     {
-      id: 5,
+      id: 4,
       title: "University-Management-System-using-File-Stream-and-OOPs-Concepts",
       description:
         "The University Management System is a C++ program that manages student and faculty information. The program uses templates for data handling, and file operations for data persistence, and incorporates error handling for smooth execution.",

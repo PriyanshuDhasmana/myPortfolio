@@ -33,8 +33,8 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed inset-x-0 top-4 z-50 px-4 sm:px-6 lg:px-20">
-      <div className={`mx-auto flex max-w-[1200px] items-center justify-between rounded-[1.75rem] border border-white/10 bg-[#05060f]/95 px-4 py-3 shadow-[0_24px_60px_rgba(0,0,0,0.22)] backdrop-blur-xl transition duration-300 ${
+    <nav className="fixed inset-x-0 top-4 z-50 px-3 sm:px-6 lg:px-20">
+      <div className={`mx-auto flex max-w-[1200px] items-center justify-between rounded-[1.75rem] border border-white/10 bg-[#05060f]/95 px-3 py-2 md:px-4 md:py-3 shadow-[0_24px_60px_rgba(0,0,0,0.22)] backdrop-blur-xl transition duration-300 ${
           isScrolled ? "bg-[#05060f]/100 shadow-[0_30px_80px_rgba(0,0,0,0.35)]" : ""
         }`}>
         <button
@@ -42,8 +42,8 @@ const Navbar = () => {
           className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-[#e6c87a] transition hover:text-white"
           aria-label="Go to hero section"
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-3xl border border-[#e6c87a]/20 bg-[#121521] text-sm shadow-[0_0_18px_rgba(230,200,122,0.12)]">
-            PD
+          <span className="flex h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-3xl border border-[#e6c87a]/20 bg-[#121521] text-sm md:text-base leading-none text-center shadow-[0_0_18px_rgba(230,200,122,0.12)]">
+            <span className="leading-none">PD</span>
           </span>
           <span className="hidden md:block">Priyanshu / Dhasmana</span>
         </button>
@@ -84,7 +84,7 @@ const Navbar = () => {
         </div>
 
         <button
-          className="md:hidden rounded-full border border-white/10 bg-white/5 p-2 text-[#e6c87a] transition hover:bg-[#171921]/90"
+          className="md:hidden rounded-full border border-white/10 bg-white/5 p-1.5 md:p-2 text-[#e6c87a] transition hover:bg-[#171921]/90"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle navigation menu"
         >
@@ -93,7 +93,7 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <div className="absolute right-4 top-[6.5rem] z-50 w-[calc(100%-2rem)] rounded-[2rem] border border-white/10 bg-[#06080f]/95 p-5 backdrop-blur-2xl shadow-[0_30px_90px_rgba(0,0,0,0.35)] md:hidden">
+        <div className="absolute right-4 top-[5.5rem] z-50 w-[calc(100%-2rem)] rounded-[2rem] border border-white/10 bg-[#06080f]/95 p-4 backdrop-blur-2xl shadow-[0_30px_90px_rgba(0,0,0,0.35)] md:hidden">
           <ul className="flex flex-col gap-4 text-slate-200 text-base">
             {menuItems.map((item) => (
               <li key={item.id}>

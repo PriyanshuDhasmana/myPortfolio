@@ -1,128 +1,82 @@
-import React from "react";
 import { motion } from "framer-motion";
+import { Briefcase } from "lucide-react";
 import { experiences } from "../../constants";
 
 const Experience = () => {
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
-
   return (
-    <motion.section
-      id="experience"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true, margin: "-100px" }}
-      className="py-24 px-[12vw] md:px-[7vw] lg:px-[16vw] font-sans relative"
-    >
-      <div className="text-center mb-16">
-        <h2 className="text-4xl sm:text-5xl font-bold text-white">EXPERIENCE</h2>
-        <div className="mx-auto mt-4 h-1 w-32 rounded-full bg-gradient-to-r from-[#EAB308] via-[#f59e0b] to-[#EAB308]"></div>
-        <p className="text-[#e5c16a]/80 mt-4 text-lg font-medium max-w-2xl mx-auto">
-          A journey through impactful roles and collaborative projects.
-        </p>
-      </div>
+    <section id="timeline" className="relative overflow-hidden px-4 py-20 sm:px-8 sm:py-24 lg:px-12">
+      <div className="mx-auto max-w-3xl lg:max-w-4xl">
+        <div className="mb-10 lg:mb-12">
+          <p className="section-kicker">Experience</p>
+          <h2 className="section-heading mt-4">Where I&apos;ve built.</h2>
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-300">
+            Roles focused on shipping reliable interfaces, improving workflows, and learning how products hold up in production.
+          </p>
+        </div>
 
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="relative"
-      >
-        {/* Timeline gradient line */}
-        <div className="hidden sm:block absolute left-1/2 top-0 h-full w-0.5 bg-gradient-to-b from-transparent via-[#EAB308]/50 to-transparent opacity-75"></div>
+        <div className="relative">
+          <div
+            className="absolute bottom-0 left-[11px] top-2 w-px bg-gradient-to-b from-cyan-200/50 via-cyan-200/25 to-transparent sm:left-[15px]"
+            aria-hidden="true"
+          />
 
-        {experiences.map((experience, index) => (
-          <motion.div
-            key={experience.id}
-            variants={cardVariants}
-            className={`relative flex flex-col sm:flex-row items-center mb-24 ${
-              index % 2 === 0 ? "sm:justify-end" : "sm:justify-start"
-            }`}
-          >
-            {/* Logo circle on timeline */}
-            <div className="relative mx-auto mb-6 sm:absolute sm:left-1/2 sm:top-8 sm:-translate-x-1/2 sm:mb-0 z-10">
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                className="flex h-20 w-20 items-center justify-center rounded-full border-2 border-white/10 bg-slate-950/80 p-3 backdrop-blur-md shadow-[0_0_28px_rgba(234,179,8,0.22)]"
+          <ol className="space-y-8 sm:space-y-10">
+            {experiences.map((experience, index) => (
+              <motion.li
+                key={experience.id}
+                initial={{ opacity: 0, x: -16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.55, delay: index * 0.06 }}
+                className="relative pl-10 sm:pl-12"
               >
-                <img
-                  src={experience.img}
-                  alt={experience.company}
-                  className="h-full w-full object-contain"
-                />
-              </motion.div>
-            </div>
+                <span
+                  className="absolute left-0 top-5 flex h-6 w-6 items-center justify-center border border-cyan-100/35 bg-[#0B1020] sm:h-8 sm:w-8"
+                  aria-hidden="true"
+                >
+                  <span className="h-2 w-2 bg-cyan-200 shadow-[0_0_12px_rgba(103,232,249,0.6)]" />
+                </span>
 
-            {/* Experience card */}
-            <motion.div
-              whileHover={{ y: -4 }}
-              transition={{ duration: 0.25 }}
-              className={`w-full sm:w-[42%] p-8 rounded-[2rem] border border-white/10 bg-slate-900/40 backdrop-blur-md shadow-[0_20px_60px_rgba(234,179,8,0.08)] transition-all duration-300 ${
-                index % 2 === 0 ? "sm:mr-[calc(50%+2.5rem)]" : "sm:ml-[calc(50%+2.5rem)]"
-              }`}
-            >
-              {/* Inner rim light */}
-              <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-b from-white/5 via-transparent to-transparent pointer-events-none opacity-70" />
+                <article className="reactive-panel border border-white/10 bg-white/[0.03] p-5 backdrop-blur-xl sm:p-6">
+                  <div className="flex flex-col gap-4 border-b border-white/10 pb-5 sm:flex-row sm:items-start sm:justify-between">
+                    <div>
+                      <p className="text-[10px] uppercase tracking-[0.24em] text-cyan-100/65">{experience.company}</p>
+                      <h3 className="mt-2 text-xl font-black text-slate-50 sm:text-2xl">{experience.role}</h3>
+                      <p className="mt-1.5 text-sm text-slate-400">{experience.date}</p>
+                    </div>
+                    <span className="inline-flex w-fit items-center gap-2 border border-cyan-100/12 bg-cyan-100/[0.05] px-3 py-2 text-xs font-medium text-cyan-50">
+                      <Briefcase className="h-3.5 w-3.5" />
+                      {experience.signal}
+                    </span>
+                  </div>
 
-              <div className="relative z-10">
-                {/* Role and company */}
-                <div className="mb-6">
-                  <h3 className="text-2xl font-semibold tracking-tight text-white">
-                    {experience.role}
-                  </h3>
-                  <p className="text-sm uppercase tracking-[0.28em] text-[#e5c16a]/70 mt-2">
-                    {experience.company}
-                  </p>
-                  <p className="text-xs uppercase tracking-[0.24em] text-[#9ca3af] mt-3">
-                    {experience.date}
-                  </p>
-                </div>
+                  <p className="mt-5 text-sm leading-7 text-slate-300">{experience.summary}</p>
 
-                {/* Description */}
-                <p className="text-[#d1d5db] leading-relaxed text-sm">
-                  {experience.desc}
-                </p>
-
-                {/* Skills */}
-                <div className="mt-6">
-                  <h5 className="text-xs uppercase tracking-[0.3em] text-[#e5c16a]/70 font-semibold mb-3">
-                    Skills
-                  </h5>
-                  <div className="flex flex-wrap gap-2">
-                    {experience.skills.map((skill, idx) => (
-                      <motion.span
-                        key={idx}
-                        whileHover={{ scale: 1.05 }}
-                        className="inline-flex rounded-full px-3 py-1.5 text-xs font-medium border border-[#EAB308]/30 bg-white/5 text-[#EAB308] transition duration-200 hover:bg-[#EAB308]/10"
+                  <ul className="mt-5 space-y-2.5">
+                    {experience.impact.map((item) => (
+                      <li
+                        key={item}
+                        className="border-l border-cyan-100/25 bg-[#07111F]/45 py-2 pl-4 pr-3 text-sm leading-6 text-slate-300"
                       >
-                        {skill}
-                      </motion.span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-5 flex flex-wrap gap-1.5">
+                    {experience.systems.map((system) => (
+                      <span key={system} className="bg-white/[0.04] px-2.5 py-1 text-xs text-slate-400">
+                        {system}
+                      </span>
                     ))}
                   </div>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        ))}
-      </motion.div>
-    </motion.section>
+                </article>
+              </motion.li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </section>
   );
 };
 

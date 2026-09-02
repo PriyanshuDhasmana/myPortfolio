@@ -1,0 +1,31 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#07111F"/>
+  <defs>
+    <linearGradient id="g" x1="140" x2="1130" y1="120" y2="610" gradientUnits="userSpaceOnUse"><stop stop-color="#67E8F9"/><stop offset=".45" stop-color="#3B82F6"/><stop offset="1" stop-color="#A78BFA"/></linearGradient>
+    <radialGradient id="r" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(620 340) scale(560 300)"><stop stop-color="#3B82F6" stop-opacity=".2"/><stop offset="1" stop-color="#07111F" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#r)"/>
+  <path d="M176 540H1102M176 180H1102M230 120V610M1050 120V610" stroke="#F8FAFC" stroke-opacity=".08"/>
+  <circle cx="640" cy="360" r="120" fill="#0B1020" stroke="url(#g)" stroke-width="3"/>
+  <path d="M640 238L744 300V420L640 482L536 420V300L640 238Z" stroke="#67E8F9" stroke-opacity=".62" stroke-width="3"/>
+  <path d="M640 300L692 330V390L640 420L588 390V330L640 300Z" fill="#67E8F9" fill-opacity=".13" stroke="#67E8F9"/>
+  <g stroke="url(#g)" stroke-width="3">
+    <path d="M520 360H350"/>
+    <path d="M760 360H930"/>
+    <path d="M640 240V120"/>
+    <path d="M640 480V600"/>
+  </g>
+  <g fill="#0B1020" stroke="#67E8F9" stroke-opacity=".52">
+    <rect x="188" y="320" width="210" height="82" rx="8"/>
+    <rect x="882" y="320" width="210" height="82" rx="8"/>
+    <rect x="540" y="74" width="200" height="82" rx="8"/>
+    <rect x="540" y="564" width="200" height="82" rx="8"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" fill="#F8FAFC" letter-spacing="3">
+    <text x="226" y="369" font-size="17">PLAN</text>
+    <text x="916" y="369" font-size="17">VALIDATE</text>
+    <text x="576" y="123" font-size="17">AGENTS</text>
+    <text x="590" y="613" font-size="17">TRACE</text>
+    <text x="82" y="84" font-size="24" letter-spacing="7" opacity=".72">AI + AUTOMATION LAB</text>
+  </g>
+</svg>

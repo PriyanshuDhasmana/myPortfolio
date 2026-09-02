@@ -1,0 +1,23 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#07111F"/>
+  <defs>
+    <linearGradient id="g" x1="140" x2="1140" y1="110" y2="610" gradientUnits="userSpaceOnUse"><stop stop-color="#67E8F9"/><stop offset=".55" stop-color="#A78BFA"/><stop offset="1" stop-color="#3B82F6"/></linearGradient>
+    <pattern id="p" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#67E8F9" stroke-opacity=".08"/></pattern>
+  </defs>
+  <rect width="1280" height="720" fill="url(#p)"/>
+  <rect x="126" y="118" width="1028" height="486" rx="8" fill="#0B1020" stroke="url(#g)" stroke-width="3"/>
+  <rect x="166" y="158" width="948" height="64" rx="8" fill="#F8FAFC" fill-opacity=".07"/>
+  <circle cx="202" cy="190" r="8" fill="#67E8F9"/><circle cx="230" cy="190" r="8" fill="#3B82F6"/><circle cx="258" cy="190" r="8" fill="#A78BFA"/>
+  <rect x="170" y="262" width="252" height="248" rx="8" fill="#67E8F9" fill-opacity=".11" stroke="#67E8F9" stroke-opacity=".32"/>
+  <rect x="464" y="262" width="294" height="104" rx="8" fill="#F8FAFC" fill-opacity=".07"/>
+  <rect x="464" y="406" width="294" height="104" rx="8" fill="#F8FAFC" fill-opacity=".07"/>
+  <rect x="802" y="262" width="270" height="248" rx="8" fill="#3B82F6" fill-opacity=".12" stroke="#3B82F6" stroke-opacity=".34"/>
+  <path d="M222 548H1058" stroke="url(#g)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M252 548C322 488 383 458 436 458C490 458 552 488 622 548C692 608 754 638 808 638C862 638 923 608 994 548" stroke="#67E8F9" stroke-opacity=".36" stroke-width="2"/>
+  <g font-family="Inter, Arial, sans-serif" fill="#F8FAFC" letter-spacing="4">
+    <text x="186" y="322" font-size="18">SERVICE MAP</text>
+    <text x="492" y="318" font-size="18">MODULAR PAGE SYSTEM</text>
+    <text x="832" y="322" font-size="18">DEPLOYMENT FLOW</text>
+    <text x="78" y="84" font-size="24" letter-spacing="7" opacity=".72">FWC OFFICIAL WEBSITE</text>
+  </g>
+</svg>

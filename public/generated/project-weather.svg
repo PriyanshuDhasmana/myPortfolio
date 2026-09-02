@@ -1,0 +1,23 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#07111F"/>
+  <defs>
+    <linearGradient id="g" x1="250" x2="1030" y1="100" y2="600" gradientUnits="userSpaceOnUse"><stop stop-color="#67E8F9"/><stop offset=".48" stop-color="#3B82F6"/><stop offset="1" stop-color="#A78BFA"/></linearGradient>
+    <radialGradient id="r" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(640 330) scale(500 300)"><stop stop-color="#67E8F9" stop-opacity=".24"/><stop offset="1" stop-color="#07111F" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#r)"/>
+  <path d="M180 530C296 426 415 374 536 374C657 374 752 426 822 530C892 634 989 634 1112 530" stroke="#67E8F9" stroke-opacity=".24" stroke-width="2"/>
+  <circle cx="530" cy="290" r="92" fill="#67E8F9" fill-opacity=".13" stroke="url(#g)" stroke-width="4"/>
+  <path d="M482 444H778C850 444 898 399 898 337C898 276 850 230 789 230C764 146 692 95 603 95C496 95 414 171 402 276C332 286 282 340 282 408C282 486 344 546 428 546H832" stroke="url(#g)" stroke-width="8" stroke-linecap="round"/>
+  <g stroke="#67E8F9" stroke-width="3" stroke-linecap="round" opacity=".72">
+    <path d="M440 594L410 646"/>
+    <path d="M560 594L530 646"/>
+    <path d="M680 594L650 646"/>
+    <path d="M800 594L770 646"/>
+  </g>
+  <rect x="838" y="142" width="270" height="160" rx="8" fill="#0B1020" stroke="#67E8F9" stroke-opacity=".42"/>
+  <path d="M876 244H1068M876 204H1010" stroke="#F8FAFC" stroke-opacity=".22" stroke-width="8" stroke-linecap="round"/>
+  <g font-family="Inter, Arial, sans-serif" fill="#F8FAFC" letter-spacing="4">
+    <text x="872" y="186" font-size="18">API SIGNAL</text>
+    <text x="80" y="84" font-size="24" letter-spacing="7" opacity=".72">WEATHER APP</text>
+  </g>
+</svg>

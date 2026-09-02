@@ -1,0 +1,46 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#07111F"/>
+  <defs>
+    <linearGradient id="blue" x1="110" x2="1180" y1="70" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67E8F9"/>
+      <stop offset=".5" stop-color="#3B82F6"/>
+      <stop offset="1" stop-color="#A78BFA"/>
+    </linearGradient>
+    <radialGradient id="light" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(665 330) scale(540 300)">
+      <stop stop-color="#67E8F9" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#07111F" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" stroke="#F8FAFC" stroke-opacity=".06"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="720" fill="url(#grid)"/>
+  <rect width="1280" height="720" fill="url(#light)"/>
+  <path d="M150 560C280 397 445 315 645 315C844 315 1007 397 1138 560" stroke="url(#blue)" stroke-width="3" stroke-opacity=".72"/>
+  <path d="M204 464C331 346 478 287 645 287C812 287 959 346 1086 464" stroke="#67E8F9" stroke-opacity=".28"/>
+  <path d="M272 360C380 292 505 258 645 258C785 258 910 292 1018 360" stroke="#A78BFA" stroke-opacity=".18"/>
+  <circle cx="645" cy="350" r="88" fill="#0B1020" stroke="url(#blue)" stroke-width="3"/>
+  <circle cx="645" cy="350" r="36" fill="#67E8F9" fill-opacity=".16" stroke="#67E8F9" stroke-opacity=".8"/>
+  <g stroke="url(#blue)" stroke-width="2">
+    <path d="M645 262V164"/>
+    <path d="M733 350H920"/>
+    <path d="M557 350H370"/>
+    <path d="M704 415L860 558"/>
+    <path d="M586 415L430 558"/>
+  </g>
+  <g fill="#0B1020" stroke="#67E8F9" stroke-opacity=".64">
+    <rect x="528" y="96" width="234" height="76" rx="8"/>
+    <rect x="918" y="312" width="212" height="76" rx="8"/>
+    <rect x="150" y="312" width="218" height="76" rx="8"/>
+    <rect x="824" y="536" width="238" height="76" rx="8"/>
+    <rect x="218" y="536" width="242" height="76" rx="8"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" fill="#F8FAFC" letter-spacing="3">
+    <text x="570" y="143" font-size="17">INTERFACE</text>
+    <text x="963" y="359" font-size="17">BACKEND</text>
+    <text x="207" y="359" font-size="17">MOTION</text>
+    <text x="874" y="584" font-size="17">AUTOMATION</text>
+    <text x="278" y="584" font-size="17">SYSTEMS</text>
+    <text x="560" y="686" font-size="16" opacity=".48">ENGINEERING CONTROL MAP</text>
+  </g>
+</svg>

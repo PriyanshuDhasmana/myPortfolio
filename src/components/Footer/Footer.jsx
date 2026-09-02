@@ -1,66 +1,55 @@
-import React from "react";
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaYoutube, FaGithub } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { navItems } from "../../constants";
 
 const Footer = () => {
-  // Smooth scroll function
   const handleScroll = (sectionId) => {
     const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
+    if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
-    <footer className="text-white py-8 px-[12vw] md:px-[7vw] lg:px-[20vw]">
-      <div className="container mx-auto text-center">
-        {/* Name / Logo */}
-        <h2 className="text-xl font-semibold text-[#ffd166]">Priyanshu Dhasmana</h2>
+    <footer className="relative border-t border-white/10 px-4 py-10 pb-24 text-white sm:px-8 lg:px-12 lg:pb-10">
+      <div className="mx-auto flex max-w-7xl flex-col gap-8 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p className="text-base font-black text-slate-50 sm:text-lg">Priyanshu Dhasmana</p>
+          <p className="mt-2 text-sm text-slate-400">Engineer · Bangalore</p>
+        </div>
 
-        {/* Navigation Links - Responsive */}
-        <nav className="flex flex-wrap justify-center space-x-4 sm:space-x-6 mt-4">
-          {[
-            { name: "About", id: "about" },
-            { name: "Skills", id: "skills" },
-            { name: "Experience", id: "experience" },
-            { name: "Projects", id: "projects" },
-            { name: "Education", id: "education" },
-          ].map((item, index) => (
+        <div className="flex flex-wrap gap-2">
+          {navItems.map((item) => (
             <button
-              key={index}
+              key={item.id}
+              type="button"
               onClick={() => handleScroll(item.id)}
-              className="hover:text-[#ffd166] text-sm sm:text-base my-1"
+              className="border border-white/10 bg-white/[0.03] px-3 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400 transition hover:border-cyan-100/25 hover:text-cyan-100"
             >
-              {item.name}
+              {item.label}
             </button>
           ))}
-        </nav>
+        </div>
 
-        {/* Social Media Icons - Responsive */}
-        <div className="flex flex-wrap justify-center space-x-4 mt-6">
+        <div className="flex gap-2">
           {[
-            { icon: <FaTwitter />, link: "https://x.com/PriyanshuDhasm4" },   
-            { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/priyanshu-dhasmana-b7a12b1b6" },
-            { icon: <FaInstagram />, link: "https://www.instagram.com/priyanshudhasmana07?igsh=YnAyaHV5ZzJ2MW9z" },
-            { icon: <FaGithub />, link: "https://github.com/PriyanshuDhasmana" },
-            
-          ].map((item, index) => (
+            { icon: <FaTwitter />, link: "https://x.com/PriyanshuDhasm4", label: "X" },
+            { icon: <FaLinkedin />, link: "https://www.linkedin.com/in/priyanshu-dhasmana-b7a12b1b6", label: "LinkedIn" },
+            { icon: <FaGithub />, link: "https://github.com/PriyanshuDhasmana", label: "GitHub" },
+          ].map((item) => (
             <a
-              key={index}
+              key={item.label}
               href={item.link}
               target="_blank"
-              rel="noopener noreferrer"
-              className="text-xl hover:text-[#ffd166] transition-transform transform hover:scale-110"
+              rel="noreferrer"
+              aria-label={item.label}
+              className="inline-flex h-10 w-10 items-center justify-center border border-white/10 bg-white/[0.03] text-cyan-100 transition hover:border-cyan-100/35"
             >
               {item.icon}
             </a>
           ))}
         </div>
-
-        {/* Copyright Text */}
-        <p className="text-sm text-gray-400 mt-6">
-          © 2025 Priyanshu Dhasmana. All rights reserved.
-        </p>
       </div>
+      <p className="mx-auto mt-8 max-w-7xl text-xs text-slate-500">
+        © {new Date().getFullYear()} Priyanshu Dhasmana
+      </p>
     </footer>
   );
 };

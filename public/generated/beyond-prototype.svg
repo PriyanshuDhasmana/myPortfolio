@@ -1,0 +1,12 @@
+<svg width="960" height="720" viewBox="0 0 960 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="720" fill="#07111F"/>
+  <defs><linearGradient id="g" x1="100" x2="830" y1="124" y2="612" gradientUnits="userSpaceOnUse"><stop stop-color="#67E8F9"/><stop offset=".48" stop-color="#3B82F6"/><stop offset="1" stop-color="#A78BFA"/></linearGradient></defs>
+  <rect x="126" y="166" width="254" height="386" rx="8" fill="#0B1020" stroke="#67E8F9" stroke-opacity=".46"/>
+  <rect x="430" y="118" width="360" height="220" rx="8" fill="#0B1020" stroke="url(#g)" stroke-width="3"/>
+  <rect x="474" y="382" width="300" height="170" rx="8" fill="#0B1020" stroke="#A78BFA" stroke-opacity=".46"/>
+  <path d="M182 244H326M182 304H298M182 364H338M182 424H286" stroke="#67E8F9" stroke-opacity=".46" stroke-width="8" stroke-linecap="round"/>
+  <path d="M492 182H726M492 242H674M524 468H704" stroke="#F8FAFC" stroke-opacity=".18" stroke-width="10" stroke-linecap="round"/>
+  <path d="M380 360H430M610 338V382" stroke="url(#g)" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="380" cy="360" r="7" fill="#67E8F9"/><circle cx="430" cy="360" r="7" fill="#3B82F6"/><circle cx="610" cy="382" r="7" fill="#A78BFA"/>
+  <text x="86" y="84" font-family="Inter, Arial, sans-serif" font-size="23" letter-spacing="7" fill="#F8FAFC" opacity=".72">PROTOTYPE CULTURE</text>
+</svg>

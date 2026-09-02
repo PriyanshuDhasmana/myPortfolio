@@ -1,0 +1,39 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="720" fill="#07111F"/>
+  <defs>
+    <linearGradient id="g" x1="205" x2="1050" y1="116" y2="602" gradientUnits="userSpaceOnUse"><stop stop-color="#67E8F9"/><stop offset=".5" stop-color="#3B82F6"/><stop offset="1" stop-color="#A78BFA"/></linearGradient>
+    <radialGradient id="r" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(650 340) scale(500 280)"><stop stop-color="#3B82F6" stop-opacity=".2"/><stop offset="1" stop-color="#07111F" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#r)"/>
+  <path d="M640 110V614M270 362H1010" stroke="#F8FAFC" stroke-opacity=".08"/>
+  <circle cx="640" cy="360" r="128" fill="#0B1020" stroke="url(#g)" stroke-width="3"/>
+  <circle cx="640" cy="360" r="64" fill="#67E8F9" fill-opacity=".1" stroke="#67E8F9" stroke-opacity=".48"/>
+  <g stroke="url(#g)" stroke-width="3">
+    <path d="M640 232L640 126"/>
+    <path d="M640 488L640 594"/>
+    <path d="M512 360H314"/>
+    <path d="M768 360H966"/>
+    <path d="M550 270L410 160"/>
+    <path d="M730 270L870 160"/>
+    <path d="M550 450L410 560"/>
+    <path d="M730 450L870 560"/>
+  </g>
+  <g fill="#0B1020" stroke="#67E8F9" stroke-opacity=".56">
+    <rect x="530" y="80" width="220" height="76" rx="8"/>
+    <rect x="198" y="324" width="220" height="76" rx="8"/>
+    <rect x="862" y="324" width="220" height="76" rx="8"/>
+    <rect x="530" y="564" width="220" height="76" rx="8"/>
+    <rect x="318" y="124" width="200" height="68" rx="8"/>
+    <rect x="762" y="124" width="200" height="68" rx="8"/>
+    <rect x="318" y="528" width="200" height="68" rx="8"/>
+    <rect x="762" y="528" width="200" height="68" rx="8"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" fill="#F8FAFC" letter-spacing="3">
+    <text x="580" y="126" font-size="17">COURSES</text>
+    <text x="256" y="370" font-size="17">FACULTY</text>
+    <text x="914" y="370" font-size="17">RESOURCES</text>
+    <text x="586" y="610" font-size="17">STUDENTS</text>
+    <text x="520" y="368" font-size="19" letter-spacing="5">ECE HUB</text>
+    <text x="82" y="84" font-size="24" letter-spacing="7" opacity=".72">ECE DEPARTMENT WEBSITE</text>
+  </g>
+</svg>

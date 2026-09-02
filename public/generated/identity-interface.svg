@@ -1,0 +1,46 @@
+<svg width="1200" height="1500" viewBox="0 0 1200 1500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="1500" fill="#07111F"/>
+  <defs>
+    <radialGradient id="g1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(610 560) rotate(90) scale(660 520)">
+      <stop stop-color="#67E8F9" stop-opacity=".34"/>
+      <stop offset=".48" stop-color="#3B82F6" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#07111F" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="192" x2="1018" y1="147" y2="1263" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67E8F9"/>
+      <stop offset=".48" stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" stroke="#67E8F9" stroke-opacity=".09" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="1500" fill="url(#grid)"/>
+  <rect width="1200" height="1500" fill="url(#g1)"/>
+  <path d="M174 134V1280H1026" stroke="#67E8F9" stroke-opacity=".22"/>
+  <path d="M1026 136H174V1280" stroke="#A78BFA" stroke-opacity=".16"/>
+  <path d="M260 1176C319 1017 426 937 580 937C738 937 849 1018 920 1178" stroke="url(#rim)" stroke-width="16" stroke-linecap="round" filter="url(#glow)"/>
+  <path d="M385 525C385 367 475 255 602 255C731 255 821 368 821 525C821 684 731 796 602 796C475 796 385 684 385 525Z" stroke="url(#rim)" stroke-width="15" filter="url(#glow)"/>
+  <path d="M450 524C450 408 513 327 602 327C692 327 756 408 756 524C756 642 692 724 602 724C513 724 450 642 450 524Z" fill="#0B1020" stroke="#67E8F9" stroke-opacity=".18" stroke-width="3"/>
+  <path d="M355 975C415 897 495 858 596 858C701 858 787 899 855 981" stroke="#F8FAFC" stroke-opacity=".16" stroke-width="2"/>
+  <path d="M320 308H220M305 380H186M920 314H1028M940 402H1044M272 1120H182M908 1110H1040" stroke="#67E8F9" stroke-opacity=".54" stroke-linecap="round"/>
+  <g filter="url(#glow)">
+    <circle cx="602" cy="525" r="6" fill="#67E8F9"/>
+    <circle cx="520" cy="492" r="4" fill="#A78BFA"/>
+    <circle cx="684" cy="492" r="4" fill="#A78BFA"/>
+    <circle cx="600" cy="618" r="4" fill="#67E8F9"/>
+  </g>
+  <path d="M241 215H419M786 215H958M240 1245H482M724 1245H958" stroke="url(#rim)" stroke-width="3" stroke-linecap="round"/>
+  <g font-family="Inter, Arial, sans-serif" fill="#F8FAFC">
+    <text x="240" y="178" font-size="22" letter-spacing="7" opacity=".76">IDENTITY INTERFACE</text>
+    <text x="240" y="1320" font-size="18" letter-spacing="5" opacity=".52">PRIYANSHU DHASMANA</text>
+    <text x="846" y="1320" font-size="18" letter-spacing="5" opacity=".52">ACTIVE</text>
+  </g>
+</svg>

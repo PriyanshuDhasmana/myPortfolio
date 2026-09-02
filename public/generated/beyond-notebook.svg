@@ -1,0 +1,10 @@
+<svg width="960" height="720" viewBox="0 0 960 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="960" height="720" fill="#07111F"/>
+  <defs><linearGradient id="g" x1="120" x2="840" y1="140" y2="610" gradientUnits="userSpaceOnUse"><stop stop-color="#67E8F9"/><stop offset=".48" stop-color="#3B82F6"/><stop offset="1" stop-color="#A78BFA"/></linearGradient></defs>
+  <path d="M164 146H796V582H164V146Z" fill="#0B1020" stroke="url(#g)" stroke-width="3"/>
+  <path d="M480 146V582" stroke="#67E8F9" stroke-opacity=".28"/>
+  <g stroke="#F8FAFC" stroke-opacity=".1"><path d="M214 218H430M214 274H430M214 330H430M214 386H390M530 218H746M530 274H746M530 330H706"/></g>
+  <path d="M236 480C296 426 346 398 386 398C426 398 466 426 506 480C546 534 594 532 650 474C684 438 718 421 752 424" stroke="url(#g)" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="386" cy="398" r="9" fill="#67E8F9"/><circle cx="650" cy="474" r="9" fill="#A78BFA"/>
+  <text x="86" y="84" font-family="Inter, Arial, sans-serif" font-size="23" letter-spacing="7" fill="#F8FAFC" opacity=".72">DIAGRAM NOTEBOOK</text>
+</svg>

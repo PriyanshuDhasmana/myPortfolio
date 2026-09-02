@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Volume2, VolumeX, Search as SearchIcon } from "lucide-react";
+import { ArrowLeft, Volume2, VolumeX, Search as SearchIcon } from "lucide-react";
 import UniverseBackground from "./UniverseBackground";
 import Orb from "./Orb";
 import OrbitField from "./OrbitField";
@@ -9,7 +9,7 @@ import NodeStage from "./NodeStage";
 import SearchOverlay, { searchNodes } from "./SearchOverlay";
 import Assistant, { matchAssistantIntent } from "./Assistant";
 import { UniverseProvider, useUniverse } from "./UniverseContext";
-import { identity, springSoft, springCamera } from "./universeNodes";
+import { identity, nodeContent, springSoft, springCamera } from "./universeNodes";
 import { useIsMobile, useIsTouch, useReducedMotion } from "./hooks";
 import { useUniverseSound } from "./useUniverseSound";
 import CustomCursor from "../components/CustomCursor";
@@ -411,6 +411,9 @@ function UniverseInner() {
   const orbitScale = expanded ? 1.28 : 1;
   const showTagline = phase !== "boot" && focus === "home" && !searchOpen;
 
+  const focusedNodeId = focus.startsWith("project-") ? "builds" : focus;
+  const focusedKicker = focus !== "home" ? nodeContent[focusedNodeId]?.kicker : null;
+
   const onSatPositions = useCallback((positions) => {
     satPositions.current = positions;
   }, []);
@@ -433,11 +436,23 @@ function UniverseInner() {
         Skip to universe
       </a>
 
-      <header className="universe-chrome">
-        <div className="universe-brand">
-          <span className="universe-brand__mark">{identity.short}</span>
-          <span className="universe-brand__name">{identity.name}</span>
-        </div>
+      <header className={`universe-chrome ${focus !== "home" ? "universe-chrome--focused" : ""}`}>
+        {focus !== "home" ? (
+          <div className="universe-chrome__nav">
+            <button type="button" className="universe-back" onClick={handleBack}>
+              <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+              <span>Return</span>
+            </button>
+            {focusedKicker && (
+              <p className="universe-chrome__kicker">{focusedKicker}</p>
+            )}
+          </div>
+        ) : (
+          <div className="universe-brand">
+            <span className="universe-brand__mark">{identity.short}</span>
+            <span className="universe-brand__name">{identity.name}</span>
+          </div>
+        )}
         <div className="universe-chrome__actions">
           {compactHeader ? (
             <>

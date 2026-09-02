@@ -3,7 +3,8 @@ import {
   projects,
   experiences,
   labModules,
-  philosophyStatements,
+  defaultStackSections,
+  howIWorkPrinciples,
   beyondCode,
   techEcosystem,
   contactCommands,
@@ -156,14 +157,15 @@ export const nodeContent = {
     kicker: "Overview",
     heading: "How I work.",
     intro:
-      "I move between interface design, full-stack delivery, and tooling that removes friction from the loop.",
+      "How I operate. Moving between interface design, full-stack delivery, and tooling to maintain a frictionless orbit.",
     pillars: overviewPillars,
     ecosystem: techEcosystem,
   },
   builds: {
     kicker: "Selected work",
     heading: "Built products.",
-    intro: "A few shipped projects—each with a clear problem, stack, and architecture.",
+    intro:
+      "A few shipped products in my orbit—each with a clear problem, stack, and architecture. Select a project to unfold its universe.",
     projects,
   },
   timeline: {
@@ -180,10 +182,11 @@ export const nodeContent = {
     modules: labModules,
   },
   philosophy: {
-    kicker: "Notes",
-    heading: "Principles I build by.",
-    intro: "",
-    statements: philosophyStatements,
+    kicker: "THE DEFAULT STACK",
+    heading: "The tools behind the work.",
+    intro: "A practical stack built around software engineering, systems thinking, and getting things shipped.",
+    sections: defaultStackSections,
+    principles: howIWorkPrinciples,
   },
   beyond: {
     kicker: "Beyond code",

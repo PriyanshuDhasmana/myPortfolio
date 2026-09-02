@@ -1,6 +1,6 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import StageAtmosphere from "./StageAtmosphere";
 import { springSoft, nodeContent } from "./universeNodes";
 
 const OverviewPanel = lazy(() => import("./panels/OverviewPanel"));
@@ -61,18 +61,7 @@ export default function NodeStage({ focus, onBack, onFocus, reducedMotion }) {
       role="region"
       aria-label={meta?.heading || "Node detail"}
     >
-      <div className="universe-stage__toolbar">
-        <button
-          type="button"
-          className="universe-back"
-          onClick={onBack}
-          tabIndex={showStage ? 0 : -1}
-        >
-          <ArrowLeft className="h-4 w-4" />
-          <span>Return</span>
-        </button>
-        {meta && <p className="universe-stage__kicker">{meta.kicker}</p>}
-      </div>
+      {showStage && <StageAtmosphere mood={nodeId} />}
 
       <motion.div
         className="universe-stage__body"
@@ -99,9 +88,7 @@ export default function NodeStage({ focus, onBack, onFocus, reducedMotion }) {
               <div className="builds-hub">
                 <header className="u-panel__header">
                   <h2 className="u-panel__heading">{meta.heading}</h2>
-                  <p className="u-panel__intro">
-                    {meta.intro} Select an orbiting project to unfold it.
-                  </p>
+                  <p className="u-panel__intro">{meta.intro}</p>
                 </header>
                 {BuildsList && (
                   <BuildsList
@@ -116,6 +103,7 @@ export default function NodeStage({ focus, onBack, onFocus, reducedMotion }) {
               <Panel
                 data={meta}
                 onOpenProject={(id) => onFocus(`project-${id}`)}
+                onNavigate={onFocus}
               />
             )}
           </Suspense>

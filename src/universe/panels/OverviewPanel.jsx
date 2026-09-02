@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
+import GleamCard from "../GleamCard";
 import { springSoft } from "../universeNodes";
 import { projects } from "../../constants";
 
@@ -21,7 +23,7 @@ const TITLE_TO_ID = {
   Auth: null,
 };
 
-export default function OverviewPanel({ data, onOpenProject }) {
+export default function OverviewPanel({ data, onOpenProject, onNavigate }) {
   const wrapRef = useRef(null);
   const [hoverTech, setHoverTech] = useState(null);
   const [lines, setLines] = useState([]);
@@ -57,7 +59,6 @@ export default function OverviewPanel({ data, onOpenProject }) {
         .map((title) => TITLE_TO_ID[title])
         .filter(Boolean)
     );
-    // also soft-match by substring
     projectAnchors.forEach((a) => {
       hoverTech.projects.forEach((t) => {
         if (a.title.toLowerCase().includes(t.toLowerCase().split(" ")[0])) {
@@ -90,21 +91,38 @@ export default function OverviewPanel({ data, onOpenProject }) {
       <header className="u-panel__header">
         <h2 className="u-panel__heading">{data.heading}</h2>
         <p className="u-panel__intro">{data.intro}</p>
+        <nav className="overview-shortcuts" aria-label="Jump to sections">
+          <button
+            type="button"
+            className="overview-shortcut"
+            onClick={() => onNavigate?.("builds")}
+          >
+            <span>Built products</span>
+            <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            className="overview-shortcut"
+            onClick={() => onNavigate?.("timeline")}
+          >
+            <span>Experience</span>
+            <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+          </button>
+        </nav>
       </header>
 
       <div className="u-panel__grid u-panel__grid--3">
         {data.pillars.map((pillar, i) => (
-          <motion.article
+          <GleamCard
             key={pillar.title}
-            className="glass-slab"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ ...springSoft, delay: 0.06 * i }}
+            transition={{ ...springSoft, delay: 0.12 * i }}
           >
             <h3>{pillar.title}</h3>
             <p>{pillar.body}</p>
             <span className="glass-slab__signal">{pillar.signal}</span>
-          </motion.article>
+          </GleamCard>
         ))}
       </div>
 
@@ -112,7 +130,10 @@ export default function OverviewPanel({ data, onOpenProject }) {
         <h3 className="u-panel__sub">Tools I build with</h3>
         <p className="tech-graph__hint">Hover a tool to see connected projects.</p>
 
-        <svg className="tech-graph__svg" aria-hidden="true">
+        <svg
+          className={`tech-graph__svg ${lines.length > 0 ? "is-active" : ""}`}
+          aria-hidden="true"
+        >
           {lines.map((l) => (
             <line
               key={l.key}
@@ -142,8 +163,11 @@ export default function OverviewPanel({ data, onOpenProject }) {
               onFocus={() => setHoverTech(tech)}
               onBlur={() => setHoverTech(null)}
             >
-              <strong>{tech.name}</strong>
-              <span>{tech.area}</span>
+              <span className="tech-chip__dot" aria-hidden="true" />
+              <span className="tech-chip__text">
+                <strong>{tech.name}</strong>
+                <span>{tech.area}</span>
+              </span>
             </motion.button>
           ))}
         </div>

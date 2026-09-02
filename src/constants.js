@@ -369,12 +369,113 @@ export const labModules = [
   },
 ];
 
-export const philosophyStatements = [
-  "Build for the person using it.",
-  "Reduce friction before adding features.",
-  "Good UX stays out of the way.",
-  "Tools should speed up judgment, not replace it.",
+export const defaultStackSections = [
+  {
+    title: "ENGINEERING",
+    items: [
+      {
+        label: "LANGUAGES",
+        title: "Java · JavaScript · HTML · CSS",
+        description:
+          "Java for application and backend development, with JavaScript, HTML and CSS forming the foundation of my interface work.",
+        tags: ["JAVA", "JAVASCRIPT", "HTML", "CSS"],
+      },
+      {
+        label: "BACKEND & APIs",
+        title: "Java · REST APIs · Protocol communication",
+        description:
+          "Building application logic around APIs, data flow and communication between system components.",
+        tags: ["JAVA", "REST", "APIs"],
+      },
+      {
+        label: "DEBUGGING & PERFORMANCE",
+        title: "Memory analysis · Debugging · Profiling",
+        description:
+          "Investigating real application behaviour instead of relying only on surface-level symptoms.",
+        tags: ["DEBUGGING", "PROFILING"],
+      },
+    ],
+  },
+  {
+    title: "INTERFACE",
+    items: [
+      {
+        label: "FRONTEND",
+        title: "HTML · CSS · JavaScript",
+        description:
+          "Building responsive interfaces with a focus on clarity, consistency and predictable behaviour.",
+        tags: ["HTML", "CSS", "JAVASCRIPT"],
+      },
+      {
+        label: "UI / VISUAL DESIGN",
+        title: "Figma · Component thinking · Responsive design",
+        description:
+          "Designing interfaces that remain structured across screen sizes instead of treating mobile as an afterthought.",
+        tags: ["FIGMA", "RESPONSIVE"],
+      },
+      {
+        label: "ARCHITECTURE & FLOWS",
+        title: "Draw.io · System diagrams · Flow diagrams",
+        description:
+          "Visualising systems before implementation to make complex flows easier to reason about.",
+        tags: ["DRAW.IO", "DIAGRAMS"],
+      },
+    ],
+  },
+  {
+    title: "SYSTEMS & WORKFLOW",
+    items: [
+      {
+        label: "DEVELOPMENT",
+        title: "VS Code · Git · GitHub",
+        description:
+          "A lightweight development workflow focused on short feedback loops, version control and readable code.",
+        tags: ["VS CODE", "GIT", "GITHUB"],
+      },
+      {
+        label: "API & SYSTEM TESTING",
+        title: "Postman · API debugging · Request inspection",
+        description:
+          "Testing endpoints and tracing request/response behaviour while developing and debugging systems.",
+        tags: ["POSTMAN", "API"],
+      },
+      {
+        label: "SYSTEM ENVIRONMENT",
+        title: "Linux · Terminal · Development environments",
+        description:
+          "Comfortable working with development environments and basic Linux and terminal workflows.",
+        tags: ["LINUX", "TERMINAL"],
+      },
+    ],
+  },
 ];
+
+export const howIWorkPrinciples = [
+  {
+    id: "01",
+    title: "UNDERSTAND THE SYSTEM",
+    description: "Trace the flow before changing the code.",
+  },
+  {
+    id: "02",
+    title: "KEEP IT SIMPLE",
+    description: "Prefer understandable solutions over unnecessary abstraction.",
+  },
+  {
+    id: "03",
+    title: "DEBUG WITH EVIDENCE",
+    description: "Use logs, traces, profiling and reproducible behaviour instead of guessing.",
+  },
+  {
+    id: "04",
+    title: "SHIP & ITERATE",
+    description: "Build, test, observe and improve.",
+  },
+];
+
+export const philosophyStatements = defaultStackSections.flatMap((section) =>
+  section.items.map((item) => `${item.label} ${item.title} ${item.description}`)
+);
 
 export const beyondCode = [
   {

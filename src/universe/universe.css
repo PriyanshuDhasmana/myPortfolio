@@ -1019,7 +1019,7 @@ body {
 .universe-sat__label {
   position: absolute;
   left: 50%;
-  top: calc(100% + 4px);
+  top: calc(100% + 2px);
   transform: translateX(-50%);
   width: max-content;
   max-width: 150px;
@@ -1056,7 +1056,7 @@ body {
   .universe-sat__label {
     max-width: 120px;
     top: auto;
-    bottom: calc(100% + 4px);
+    bottom: calc(100% + 2px);
   }
 
   .universe-sat__label strong {

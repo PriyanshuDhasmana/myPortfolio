@@ -1019,35 +1019,32 @@ body {
 .universe-sat__label {
   position: absolute;
   left: 50%;
-  top: calc(100% + 12px);
+  top: calc(100% + 4px);
   transform: translateX(-50%);
   width: max-content;
-  max-width: 220px;
+  max-width: 150px;
   padding: 0;
   border: 0;
   background: transparent;
   text-align: center;
   pointer-events: none;
   box-shadow: none;
+  line-height: 1.1;
 }
 
 .universe-sat__label strong {
   display: block;
   font-family: var(--universe-display);
-  font-size: 0.74rem;
+  font-size: 0.52rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(248, 250, 252, 0.95);
+  white-space: nowrap;
 }
 
 .universe-sat__label em {
-  display: block;
-  margin-top: 0.2rem;
-  font-style: normal;
-  font-size: 0.66rem;
-  line-height: 1.35;
-  color: rgba(148, 163, 184, 0.85);
+  display: none;
 }
 
 @media (max-width: 768px) {
@@ -1057,14 +1054,14 @@ body {
   }
 
   .universe-sat__label {
-    max-width: 140px;
-    /* On mobile show labels above sats to avoid overlapping the tagline */
+    max-width: 120px;
     top: auto;
-    bottom: calc(100% + 8px);
+    bottom: calc(100% + 4px);
   }
 
   .universe-sat__label strong {
-    font-size: 0.75rem;
+    font-size: 0.48rem;
+    letter-spacing: 0.08em;
   }
 
 }

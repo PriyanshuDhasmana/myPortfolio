@@ -66,7 +66,6 @@ export default function Satellite({
           transition={springSnap}
         >
           <strong>{node.label}</strong>
-          <em>{node.description}</em>
         </motion.span>
       )}
     </motion.button>

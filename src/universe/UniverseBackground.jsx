@@ -5,7 +5,7 @@ import { useReducedMotion } from "./hooks";
  * Subtle infinite depth: faint grid, soft fog, sparse particles, rare light streaks.
  * No starfield wallpaper — premium restraint.
  */
-export default function UniverseBackground({ parallax = { x: 0, y: 0 }, mood = "home" }) {
+export default function UniverseBackground({ parallax = { x: 0, y: 0 }, mood = "home", videoBackdrop = false }) {
   const canvasRef = useRef(null);
   const parallaxRef = useRef(parallax);
   const reduced = useReducedMotion();
@@ -18,6 +18,7 @@ export default function UniverseBackground({ parallax = { x: 0, y: 0 }, mood = "
   }, [parallax]);
 
   useEffect(() => {
+    if (videoBackdrop) return undefined;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d", { alpha: true });
@@ -50,7 +51,9 @@ export default function UniverseBackground({ parallax = { x: 0, y: 0 }, mood = "
       canvas.style.height = `${h}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      const count = Math.min(48, Math.floor((w * h) / 28000));
+      // Slightly denser than a plain starfield, while still keeping the canvas
+      // work comfortably small on large screens.
+      const count = Math.min(72, Math.max(34, Math.floor((w * h) / 18500)));
       particles.length = 0;
       for (let i = 0; i < count; i += 1) {
         particles.push({
@@ -102,6 +105,22 @@ export default function UniverseBackground({ parallax = { x: 0, y: 0 }, mood = "
       ctx.restore();
     };
 
+    const drawNebulae = (accent, activeParallax) => {
+      const blooms = [
+        { x: w * 0.16 + activeParallax.x * 18, y: h * 0.26 + activeParallax.y * 12, r: Math.min(w, h) * 0.32, a: 0.055 },
+        { x: w * 0.84 + activeParallax.x * 12, y: h * 0.72 + activeParallax.y * 15, r: Math.min(w, h) * 0.26, a: 0.045 },
+      ];
+
+      for (const bloom of blooms) {
+        const g = ctx.createRadialGradient(bloom.x, bloom.y, 0, bloom.x, bloom.y, bloom.r);
+        g.addColorStop(0, `rgba(${accent[0]}, ${accent[1]}, ${accent[2]}, ${bloom.a})`);
+        g.addColorStop(0.5, `rgba(${accent[0]}, ${accent[1]}, ${accent[2]}, ${bloom.a * 0.35})`);
+        g.addColorStop(1, "rgba(7, 17, 31, 0)");
+        ctx.fillStyle = g;
+        ctx.fillRect(bloom.x - bloom.r, bloom.y - bloom.r, bloom.r * 2, bloom.r * 2);
+      }
+    };
+
     const frame = () => {
       t += 1;
       const accent = moodAccent[mood] || moodAccent.home;
@@ -123,6 +142,7 @@ export default function UniverseBackground({ parallax = { x: 0, y: 0 }, mood = "
       ctx.fillStyle = fog;
       ctx.fillRect(0, 0, w, h);
 
+      drawNebulae(accent, activeParallax);
       drawGrid(activeParallax.x, activeParallax.y);
 
       for (const p of particles) {
@@ -137,9 +157,22 @@ export default function UniverseBackground({ parallax = { x: 0, y: 0 }, mood = "
         const px = p.x + activeParallax.x * 12 * p.z;
         const py = p.y + activeParallax.y * 10 * p.z;
         ctx.beginPath();
-        ctx.fillStyle = `rgba(${accent[0]}, ${accent[1]}, ${accent[2]}, ${0.15 + p.z * 0.35})`;
+        ctx.fillStyle = `rgba(${accent[0]}, ${accent[1]}, ${accent[2]}, ${0.14 + p.z * 0.38})`;
         ctx.arc(px, py, p.r * p.z, 0, Math.PI * 2);
         ctx.fill();
+
+        // A few larger particles receive a delicate four-point flare. It gives
+        // the scene depth without needing image assets or a second canvas.
+        if (p.r > 1.32 && p.z > 0.7) {
+          ctx.strokeStyle = `rgba(${accent[0]}, ${accent[1]}, ${accent[2]}, 0.16)`;
+          ctx.lineWidth = 0.5;
+          ctx.beginPath();
+          ctx.moveTo(px - 3, py);
+          ctx.lineTo(px + 3, py);
+          ctx.moveTo(px, py - 3);
+          ctx.lineTo(px, py + 3);
+          ctx.stroke();
+        }
       }
 
       if (!reduced) spawnStreak();
@@ -169,12 +202,12 @@ export default function UniverseBackground({ parallax = { x: 0, y: 0 }, mood = "
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", resize);
     };
-  }, [mood, reduced]);
+  }, [mood, reduced, videoBackdrop]);
 
   return (
     <canvas
       ref={canvasRef}
-      className="universe-bg"
+      className={`universe-bg ${videoBackdrop ? "universe-bg--video" : ""}`}
       aria-hidden="true"
     />
   );

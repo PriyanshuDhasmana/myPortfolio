@@ -52,8 +52,11 @@ export default function OrbitField({
 
   useEffect(() => {
     if (reduced || phase === "boot") return undefined;
-    // Keep orbits alive at home; freeze when deep in a panel (except builds moons handle themselves)
+    // Keep orbits alive at home; freeze when deep in a panel (except builds moons handle themselves).
+    // On touch devices, the satellites are difficult to tap while still drifting, so pause the orbit
+    // until the user exits the home view or swipes off the current focus.
     if (focus !== "home" && focus !== "builds") return undefined;
+    if (mobile && focus === "home") return undefined;
     let raf = 0;
     let last = performance.now();
     const loop = (now) => {
@@ -69,7 +72,7 @@ export default function OrbitField({
     };
     raf = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(raf);
-  }, [nodes, reduced, phase, focus, expanded]);
+  }, [nodes, reduced, phase, focus, expanded, mobile]);
 
   const positions = useMemo(() => {
     void tick;
@@ -91,9 +94,10 @@ export default function OrbitField({
       } else {
         const a = angles.current[n.id] ?? n.orbit.phase;
         const rx = n.orbit.radius * scale;
-        const ry = n.orbit.radius * scale * 0.55;
-        x = Math.cos(a) * rx;
-        y = Math.sin(a) * ry + Math.sin(a * 1.3) * (n.orbit.phaseY * scale);
+        const ry = n.orbit.radius * scale * 0.52;
+        const wave = Math.sin(a * 1.15) * (n.orbit.phaseY * scale * 0.55);
+        x = Math.cos(a) * rx - 38;
+        y = Math.sin(a) * ry + wave - 18;
       }
       x += parallax.x * 28 * (n.orbit.radius + 0.2);
       y += parallax.y * 22 * (n.orbit.radius + 0.2);

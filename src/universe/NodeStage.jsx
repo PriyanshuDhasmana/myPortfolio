@@ -102,6 +102,7 @@ export default function NodeStage({ focus, onBack, onFocus, reducedMotion }) {
             {Panel && (
               <Panel
                 data={meta}
+                reducedMotion={reducedMotion}
                 onOpenProject={(id) => onFocus(`project-${id}`)}
                 onNavigate={onFocus}
               />

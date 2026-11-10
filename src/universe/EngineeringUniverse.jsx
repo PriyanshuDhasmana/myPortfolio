@@ -13,6 +13,8 @@ import { identity, nodeContent, springSoft, springCamera } from "./universeNodes
 import { useIsMobile, useIsTouch, useReducedMotion } from "./hooks";
 import { useUniverseSound } from "./useUniverseSound";
 import CustomCursor from "../components/CustomCursor";
+import HomeSpaceDecor from "./HomeSpaceDecor";
+import LandingVideoBackground from "./LandingVideoBackground";
 
 const landingMessage = "Good UX stays out of the way.";
 
@@ -426,10 +428,13 @@ function UniverseInner() {
       onPointerUp={onPointerUpSpace}
       onPointerCancel={onPointerUpSpace}
     >
+      {focus === "home" && <LandingVideoBackground />}
       <UniverseBackground
         parallax={parallax}
         mood={activeMood === "home" ? "home" : activeMood}
+        videoBackdrop={focus === "home"}
       />
+      {focus === "home" && <HomeSpaceDecor />}
       {!touch && <CustomCursor />}
 
       <a href="#universe-main" className="sr-only skip-link">
@@ -595,7 +600,14 @@ function UniverseInner() {
               exit={{ opacity: 0, x: "-50%", y: -8 }}
               transition={springSoft}
             >
+              <div className="universe-tagline__eyebrow" aria-label="An interactive portfolio">
+                <span className="universe-tagline__line" aria-hidden="true" />
+                <span>AN INTERACTIVE PORTFOLIO</span>
+                <span className="universe-tagline__line" aria-hidden="true" />
+              </div>
+
               <h1>{landingMessage}</h1>
+
               {phase === "explore" && (
                 <motion.span
                   className="universe-explore-cue"
@@ -605,18 +617,11 @@ function UniverseInner() {
                 >
                   <span className="universe-explore-cue__action">
                     <i aria-hidden="true" />
-                    {mobile ? "Tap any satellite to explore" : "Click any satellite to explore"}
+                    {mobile ? "Select a satellite to explore" : "Select a satellite to explore"}
                   </span>
                   <span className="universe-explore-cue__detail">
-                    {mobile
-                      ? "Drag to explore the orbit · Pinch to zoom"
-                      : "Hover a satellite for a preview · Press / to search"}
+                    {mobile ? "Hover to preview · Tap to enter" : "Hover to preview · Click to explore"}
                   </span>
-                  {/*
-                  {mobile
-                    ? "Tap a node · Swipe to return · Long-press Orb for home"
-                    : "Hover satellites · Click to enter · Hold Orb to expand · Type to search"}
-                  */}
                 </motion.span>
               )}
             </motion.div>

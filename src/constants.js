@@ -212,6 +212,23 @@ export const techEcosystem = [
 
 export const projects = [
   {
+    id: "tweet-sentiment",
+    title: "Tweet Sentiment Analyzer",
+    eyebrow: "NLP + ML app",
+    image: "/generated/project-sentiment.svg",
+    problem: "Short social text is noisy and hard to classify without a reliable sentiment model.",
+    stack: ["Python", "scikit-learn", "Streamlit", "pandas", "TF-IDF"],
+    architecture: ["Text cleaning", "TF-IDF features", "Classifier training", "Evaluation loop", "Interactive UI"],
+    metrics: [
+      { label: "Task", value: "3-class NLP" },
+      { label: "Model", value: "TF-IDF + ML" },
+      { label: "UX", value: "Live prediction" },
+    ],
+    impact: "Turned raw tweet text into a clear sentiment classifier with practical prediction feedback.",
+    github: null,
+    webapp: "https://tweetsentimentapp-pdfolio.streamlit.app/",
+  },
+  {
     id: "volunteer",
     title: "Volunteer App",
     eyebrow: "Community platform",
@@ -348,24 +365,49 @@ export const experiences = [
 
 export const labModules = [
   {
+    title: "Sentiment intelligence",
+    command: "clean → vectorize → predict",
+    summary: "A practical NLP workflow that turns noisy tweet text into a fast sentiment classifier.",
+    body: "Text cleaning, TF-IDF feature engineering, model evaluation, and a lightweight interface for positive, neutral, and negative predictions.",
+    status: "model: tuned",
+    trace: ["clean", "vectorize", "predict"],
+    metric: "macro F1",
+  },
+  {
     title: "SDLC support",
     command: "plan → build → review",
+    summary: "Agent-assisted planning, implementation checks, and review loops without losing intent.",
     body: "Automation for planning, implementation support, review loops, and repetitive workflow compression.",
+    status: "auto-lint: passed",
+    trace: ["lint", "tests", "review"],
+    metric: "3.2s",
   },
   {
     title: "Search & discovery",
     command: "index → trace → refine",
+    summary: "Fast retrieval paths for finding decisions, context, and prior work in a single pass.",
     body: "Retrieval and interface thinking for faster discovery inside engineering tools.",
+    status: "index: synced",
+    trace: ["query", "match", "refine"],
+    metric: "1.4s",
   },
   {
     title: "HMI clarity",
     command: "observe → simplify → ship",
+    summary: "Interfaces designed around user intent, state readability, and low-friction action.",
     body: "Human-machine interfaces focused on intent, state, and dependable interaction.",
+    status: "state map: stable",
+    trace: ["observe", "simplify", "ship"],
+    metric: "98%",
   },
   {
     title: "Performance",
     command: "profile → fix → measure",
+    summary: "Small, evidence-backed optimizations that keep the system responsive and predictable.",
     body: "Instrumentation around bottlenecks, profiling, and measurable UI or runtime gains.",
+    status: "render: tuned",
+    trace: ["profile", "fix", "measure"],
+    metric: "-26%",
   },
 ];
 
@@ -480,21 +522,30 @@ export const philosophyStatements = defaultStackSections.flatMap((section) =>
 export const beyondCode = [
   {
     title: "Workstation",
+    variant: "workstation",
     image: "/generated/beyond-workstation.svg",
     body: "A calm setup built for long-form problem solving—clean signals, focused tooling.",
     tags: ["setup", "focus", "craft"],
+    tools: [".zshrc", "Figma", "Notion"],
+    command: "npm run plan && npm run sketch",
   },
   {
     title: "Diagrams & notes",
+    variant: "diagrams",
     image: "/generated/beyond-notebook.svg",
     body: "Flows, state diagrams, API notes, and small architecture sketches before code.",
     tags: ["thinking", "architecture", "notes"],
+    tools: ["Mermaid", "draw.io", "docs"],
+    command: "mermaid build --trace diagram.md",
   },
   {
     title: "Prototypes",
+    variant: "prototypes",
     image: "/generated/beyond-prototype.svg",
     body: "Late-night interface studies and rough ideas turned into interactive proofs.",
     tags: ["prototypes", "motion", "experiments"],
+    tools: ["Framer Motion", "SVG", "CSS"],
+    command: "npx vite dev --host 0.0.0.0",
   },
 ];
 

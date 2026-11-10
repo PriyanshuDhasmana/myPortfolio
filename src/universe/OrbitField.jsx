@@ -151,8 +151,7 @@ export default function OrbitField({
     // so users get a subtle guided tour of each satellite's purpose.
     const [autoLabel, setAutoLabel] = useState(null);
     useEffect(() => {
-      const vw = typeof window !== "undefined" ? window.innerWidth : 1024;
-      if (!showSats || phase !== "explore" || reduced || vw <= 420) {
+      if (!showSats || phase !== "explore" || reduced) {
         setAutoLabel(null);
         return undefined;
       }

@@ -306,9 +306,15 @@ function UniverseInner() {
 
   const onPointerMoveSpace = (e) => {
     if (!dragRef.current) return;
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+    const nextX = dragRef.current.ox + (e.clientX - dragRef.current.x) * 0.35;
+    const nextY = dragRef.current.oy + (e.clientY - dragRef.current.y) * 0.35;
+    const xLimit = mobile ? Math.max(28, Math.min(60, window.innerWidth * 0.12)) : 220;
+    const yLimit = mobile ? Math.max(24, Math.min(52, window.innerHeight * 0.12)) : 220;
+
     setDrag({
-      x: dragRef.current.ox + (e.clientX - dragRef.current.x) * 0.35,
-      y: dragRef.current.oy + (e.clientY - dragRef.current.y) * 0.35,
+      x: mobile ? clamp(nextX, -xLimit, xLimit) : nextX,
+      y: mobile ? clamp(nextY, -yLimit, yLimit) : nextY,
     });
   };
 
@@ -384,11 +390,14 @@ function UniverseInner() {
       const clamp = (v, a, b) => Math.max(Math.min(v, b), a);
       const limit = Math.max(28, Math.round(vw * 0.06));
       const mobileNudge = Math.min(72, Math.round(vh * 0.1));
+      const mobileXLimit = Math.max(24, Math.min(58, vw * 0.12));
+      const mobileYLimit = Math.max(18, Math.min(46, vh * 0.12));
+      const clampedRawX = clamp(rawX, -mobileXLimit, mobileXLimit);
+      const clampedDragY = clamp(drag.y + parallax.y * 20 - (mobile ? mobileNudge : 36), -mobileYLimit, mobileYLimit);
       return {
         scale: zoom * (expanded ? 0.88 : 1),
-        x: clamp(rawX, -limit, limit),
-        // On mobile, apply a larger upward offset proportional to viewport height
-        y: drag.y + parallax.y * 20 - (mobile ? mobileNudge : 36),
+        x: mobile ? clampedRawX : clamp(rawX, -limit, limit),
+        y: clampedDragY,
       };
     }
     return {

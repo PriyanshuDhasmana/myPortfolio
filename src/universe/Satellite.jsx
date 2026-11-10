@@ -58,7 +58,7 @@ export default function Satellite({
     >
       <span className="universe-sat__core" />
       <span className="universe-sat__aura" />
-      {(hovered || highlighted || autoLabelActive) && (
+      {(mobile || hovered || highlighted || autoLabelActive) && (
         <motion.span
           className="universe-sat__label"
           initial={{ opacity: 0, y: 6 }}

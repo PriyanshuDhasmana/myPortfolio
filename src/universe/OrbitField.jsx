@@ -52,11 +52,9 @@ export default function OrbitField({
 
   useEffect(() => {
     if (reduced || phase === "boot") return undefined;
-    // Keep orbits alive at home; freeze when deep in a panel (except builds moons handle themselves).
-    // On touch devices, the satellites are difficult to tap while still drifting, so pause the orbit
-    // until the user exits the home view or swipes off the current focus.
+    // Keep orbits alive at home; freeze only when deep in a panel (except builds moons handle themselves).
+    // The mobile home view should still breathe and rotate so the system feels alive.
     if (focus !== "home" && focus !== "builds") return undefined;
-    if (mobile && focus === "home") return undefined;
     let raf = 0;
     let last = performance.now();
     const loop = (now) => {
